@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS Reset & Variables (The Core) */
         :root {
-            --primary-color: #5D4037; /* Deep Coffee/Brown for grounding */
-            --secondary-color: #A1887F; /* Lighter Earth Tone for contrast */
-            --accent-color: #FFB300; /* Gold/Amber for highlight and CTA */
-            --light-bg: #F5F5DC; /* Beige/Cream for readability */
+            --primary-color: #5D4037;
+            --secondary-color: #A1887F;
+            --accent-color: #FFB300;
+            --light-bg: #F5F5DC;
             --dark-text: #212121;
             --white: #fff;
             --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -29,7 +28,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Smooth scrolling for user comfort */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -37,8 +36,8 @@
             line-height: 1.6;
             color: var(--dark-text);
             background-color: var(--light-bg);
-            padding-top: 80px; 
-            padding-bottom: 70px; /* Space for fixed mobile footer menu */
+            padding-top: 80px;
+            padding-bottom: 70px;
         }
         
         .container {
@@ -47,7 +46,7 @@
             padding: 0 1.5rem;
         }
 
-        /* ------------------ Header & Navigation ------------------ */
+        /* Header */
         header {
             background-color: var(--primary-color);
             color: var(--white);
@@ -79,6 +78,12 @@
             border-radius: 50%;
             margin-right: 10px;
             border: 2px solid var(--accent-color);
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
 
         .logo-text {
@@ -127,8 +132,42 @@
             color: var(--white);
         }
 
-        /* ------------------ Buttons & CTA ------------------ */
-        .cta-button, .buy-button, .submit-button {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(93, 64, 55, 0.8), rgba(93, 64, 55, 0.9));
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 0;
+            margin-top: -80px;
+            padding-top: 12rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
             display: inline-block;
             background-color: var(--accent-color);
             color: var(--dark-text);
@@ -144,7 +183,7 @@
             box-shadow: var(--shadow-subtle);
         }
         
-        .cta-button:hover, .buy-button:hover, .submit-button:hover {
+        .cta-button:hover {
             background-color: #e59400; 
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -161,7 +200,7 @@
             color: var(--dark-text);
         }
 
-        /* ------------------ General Sections (Scroll Reveal) ------------------ */
+        /* Sections */
         section {
             padding: 6rem 0;
             opacity: 0; 
@@ -192,7 +231,7 @@
             border-radius: 2px;
         }
 
-        /* ------------------ Baydin Section ------------------ */
+        /* Baydin Section */
         .baydin-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -215,6 +254,18 @@
             box-shadow: var(--shadow-strong);
         }
 
+        .baydin-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .baydin-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
         .date-selection {
             text-align: center;
             margin-top: 3rem;
@@ -225,7 +276,24 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
+        .date-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .date-input {
+            padding: 0.8rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            font-family: 'Padauk', sans-serif;
+            font-size: 1rem;
+            min-width: 200px;
+        }
+
         .result-display {
             background-color: var(--white);
             border-radius: var(--radius);
@@ -235,14 +303,268 @@
             margin: 3rem auto 0;
             display: none;
             border-left: 8px solid var(--accent-color);
-            animation: fadeIn 0.8s ease-out;
         }
 
         .result-display.active {
             display: block;
+            animation: fadeIn 0.8s ease-out;
         }
         
-        /* ------------------ Products & Buy Button ------------------ */
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .result-date {
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        .result-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .result-image {
+            flex: 0 0 100px;
+            text-align: center;
+        }
+        
+        .result-image i {
+            font-size: 4rem;
+            color: var(--accent-color);
+        }
+        
+        .result-details {
+            flex: 1;
+        }
+        
+        .result-details h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Assistant Baydin Section */
+        .assistant-baydin {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .assistant-baydin p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Tarot Reading Section */
+        .tarot-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .tarot-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .tarot-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .tarot-form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .tarot-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .tarot-form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            font-family: 'Padauk', sans-serif;
+            font-size: 1rem;
+            height: 120px;
+            resize: vertical;
+        }
+
+        .tarot-result {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-subtle);
+            display: none;
+            text-align: center;
+        }
+
+        .tarot-result.active {
+            display: block;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .tarot-result h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .tarot-answer {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+        }
+
+        .yes-answer {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #2E7D32;
+            border: 3px solid #4CAF50;
+        }
+
+        .no-answer {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: #C62828;
+            border: 3px solid #F44336;
+        }
+
+        .maybe-answer {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: #FF8F00;
+            border: 3px solid #FFC107;
+        }
+
+        .tarot-explanation {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(161, 136, 127, 0.1);
+            border-radius: var(--radius);
+            text-align: left;
+        }
+
+        .tarot-explanation h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .tarot-card-preview {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+        }
+
+        .tarot-card-preview h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .tarot-card-preview p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .tarot-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tarot-card {
+            background-color: var(--secondary-color);
+            border-radius: var(--radius);
+            padding: 1.5rem 0.5rem;
+            color: var(--white);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tarot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .tarot-card i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            line-height: 1.8;
+        }
+        
+        /* Products Section */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -273,8 +595,110 @@
             color: var(--white);
             font-size: 4rem;
         }
+
+        .product-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 1rem 0;
+        }
         
-        /* ------------------ Modal (Order Popup) ------------------ */
+        .buy-button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            font-family: 'Padauk', sans-serif;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Modal */
         .modal {
             display: none; 
             position: fixed; 
@@ -298,6 +722,33 @@
             box-shadow: var(--shadow-strong);
             position: relative;
             animation: slideInUp 0.4s ease-out;
+        }
+        
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            font-size: 1.6rem;
+        }
+
+        .close-btn {
+            color: var(--dark-text);
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--accent-color);
+            text-decoration: none;
+            cursor: pointer;
         }
         
         .payment-options {
@@ -331,11 +782,18 @@
             padding: 1.5rem;
             border-radius: var(--radius);
             margin-top: 1rem;
-            display: none; 
+            display: none;
         }
         
         .order-form-group.active {
             display: block;
+        }
+
+        .order-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
         }
 
         .order-form-group input, .order-form-group select {
@@ -347,10 +805,14 @@
             font-family: 'Padauk', sans-serif;
             font-size: 1rem;
         }
+        
+        .cod-location-fields input, .cod-location-fields select {
+            margin-bottom: 0.5rem;
+        }
 
-        /* ------------------ Mobile Footer Menu (Tab Bar) ------------------ */
+        /* Mobile Footer */
         .mobile-footer-nav {
-            display: none; 
+            display: none;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -360,7 +822,7 @@
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
             z-index: 1500;
         }
-        
+
         .mobile-footer-nav ul {
             display: flex;
             justify-content: space-around;
@@ -368,11 +830,55 @@
             height: 100%;
         }
 
-        /* ------------------ Responsive Design ------------------ */
+        .mobile-footer-nav ul li a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 0.75rem;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+        
+        .mobile-footer-nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-footer-nav ul li a i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+        
+        .mobile-footer-nav ul li a.active {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             body {
                 padding-top: 70px;
-                padding-bottom: 60px; 
+                padding-bottom: 60px;
             }
             
             .mobile-footer-nav {
@@ -389,12 +895,80 @@
                 margin-left: auto;
             }
             
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            nav#mainNav.active {
+                display: block;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            nav#mainNav.active ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            nav#mainNav.active ul li {
+                margin-left: 0;
+            }
+            
+            nav#mainNav.active ul li a {
+                display: block;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .hero {
+                padding: 6rem 0;
+                padding-top: 10rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
             .contact-content {
                 grid-template-columns: 1fr;
             }
             
             .payment-options {
                 flex-direction: column;
+            }
+            
+            .payment-btn {
+                width: 100%;
+            }
+            
+            .result-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tarot-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tarot-card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .iframe-container {
+                height: 400px;
             }
         }
     </style>
@@ -403,13 +977,15 @@
     <header>
         <div class="container header-content">
             <a href="#home" class="logo">
-                <img src="https://i.ibb.co/8LPhfcNz/Mon-25-08-2025-06-51-38.png" alt="ဆရာ ထူးသစ်စျာန် လိုဂို" class="logo-img">
+                <div class="logo-img">ထ</div>
                 <div class="logo-text">ဆရာ ထူးသစ်စျာန်</div>
             </a>
             <nav id="mainNav">
                 <ul>
                     <li><a href="#home" data-scroll>ပင်မစာမျက်နှာ</a></li>
                     <li><a href="#baydin" data-scroll>ပညာဒါနဗေဒင်</a></li>
+                    <li><a href="#assistant-baydin" data-scroll>လက်ထောက်ဗေဒင်</a></li>
+                    <li><a href="#tarot-reading" data-scroll>တားရော့အဟော</a></li>
                     <li><a href="#services" data-scroll>ဝန်ဆောင်မှုများ</a></li>
                     <li><a href="#products" data-scroll>အဆောင်ပစ္စည်းများ</a></li>
                     <li><a href="#contact" data-scroll>ဆက်သွယ်ရန်</a></li>
@@ -421,10 +997,10 @@
         </div>
     </header>
 
-    <section class="hero" id="home" style="background: linear-gradient(rgba(93, 64, 55, 0.8), rgba(93, 64, 55, 0.9)), url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center; color: var(--white); text-align: center; padding: 12rem 0;">
-        <div class="hero-content" style="max-width: 800px; margin: 0 auto; padding: 0 1.5rem;">
-            <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem;">ဂမ္ဘီရလောကီထူးသစ်စျာန်</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 2.5rem; line-height: 1.8;">
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ဂမ္ဘီရလောကီထူးသစ်စျာန်</h1>
+            <p>
                 **ဓာတ်၊ နတ်၊ သိုက်၊ ဂမ္ဘီရ** လောကီပညာရပ်များဖြင့် ဗေဒင်ဟောခြင်း၊ အစီအမံများ စီရင်ဆောင်ရွက်ပေးခြင်း၊ 
                 မှော်အဆောင်လက်ဖွဲ့များနှင့် လောကီဆိုင်ရာ ပြဿနာများအတွက် **ထိရောက်သော ဖြေရှင်းချက်**များ ပေးအပ်ခြင်း။
             </p>
@@ -441,17 +1017,23 @@
             
             <div class="baydin-cards">
                 <div class="baydin-card" data-type="day">
-                    <div class="baydin-icon"><i class="fas fa-calendar-day"></i></div>
+                    <div class="baydin-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
                     <h3>ယနေ့ကံဇာတာ</h3>
                     <p>သင့်မွေးနေ့အလိုက် ယနေ့အတွက် ကံကြမ္မာဟောစာတမ်း</p>
                 </div>
                 <div class="baydin-card" data-type="week">
-                    <div class="baydin-icon"><i class="fas fa-calendar-week"></i></div>
+                    <div class="baydin-icon">
+                        <i class="fas fa-calendar-week"></i>
+                    </div>
                     <h3>တစ်ပတ်စာဇာတာ</h3>
                     <p>ယခုအပတ်အတွက် အသေးစိတ်ကံကြမ္မာ ဟောကြားချက်</p>
                 </div>
                 <div class="baydin-card" data-type="month">
-                    <div class="baydin-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="baydin-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
                     <h3>တစ်လတာဇာတာ</h3>
                     <p>ယခုလအတွက် အရေးကြီးသော ကံကြမ္မာလမ်းကြောင်း</p>
                 </div>
@@ -459,25 +1041,104 @@
 
             <div class="date-selection">
                 <h3>**ပညာဒါန ဗေဒင်ရလဒ်** ကြည့်ရှုရန် သင့်မွေးနေ့ကို ရွေးချယ်ပါ</h3>
-                <div class="date-form" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <div class="date-form">
                     <input type="date" class="date-input" id="birthDate" required>
                     <button class="cta-button" id="calculateBtn">ဟောကြားမှုကို ကြည့်ရန်</button>
                 </div>
             </div>
 
             <div class="result-display" id="resultDisplay">
-                <div class="result-header" style="text-align: center; margin-bottom: 2rem;">
+                <div class="result-header">
                     <h3>သင့်ဗေဒင်ဟောစာတမ်း</h3>
-                    <p id="resultDate" class="result-date" style="color: var(--secondary-color); font-style: italic;"></p>
+                    <p id="resultDate" class="result-date"></p>
                 </div>
-                <div class="result-content" style="display: flex; align-items: center; gap: 2rem;">
-                    <div class="result-image" style="flex: 0 0 100px; text-align: center;">
-                        <i class="fas fa-star" id="resultIcon" style="font-size: 4rem; color: var(--accent-color);"></i>
+                <div class="result-content">
+                    <div class="result-image">
+                        <i class="fas fa-star" id="resultIcon"></i>
                     </div>
-                    <div class="result-details" style="flex: 1;">
-                        <h4 id="resultTitle" style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-color);">ခေါင်းစဉ်</h4>
+                    <div class="result-details">
+                        <h4 id="resultTitle">ခေါင်းစဉ်</h4>
                         <p id="resultDescription">ဟောကြားချက်အကြောင်းအရာ...</p>
-                        <div id="resultDetails" style="margin-top: 1rem;"></div>
+                        <div id="resultDetails"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="assistant-baydin" id="assistant-baydin">
+        <div class="container">
+            <h2 class="section-title">🤖 လက်ထောက်ဗေဒင် (AI Assistant)</h2>
+            <p>
+                ခေတ်မီနည်းပညာဖြင့် တည်ဆောက်ထားသော **လက်ထောက်ဗေဒင်စနစ်** (AI Assistant) မှတစ်ဆင့် အခမဲ့ ဗေဒင်ဟောချက်များ၊ 
+                အိပ်မက်နိမိတ်နှင့် အခြားဗေဒင်ဆိုင်ရာ အချက်အလက်များကို ချက်ချင်းရှာဖွေပါ။
+            </p>
+            <div class="iframe-container">
+                <iframe src="https://www.ydnp.net/baydin/" title="လက်ထောက်ဗေဒင် AI" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="tarot-reading-section" id="tarot-reading">
+        <div class="container">
+            <h2 class="section-title">🔮 တားရော့ အဟော Yes/No</h2>
+            
+            <div class="tarot-container">
+                <div class="tarot-form">
+                    <h3>မေးခွန်းမေးရန်</h3>
+                    <form id="tarotForm">
+                        <div class="tarot-form-group">
+                            <label for="tarotQuestion">သင့်မေးခွန်းကို အောက်တွင် ရေးသားပါ</label>
+                            <textarea id="tarotQuestion" required placeholder="ဥပမာ - ဒီလအတွင်း ငါ့အလုပ်အကိုင် အဆင်ပြေမလား?"></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">တားရော့ကြည့်ရန်</button>
+                    </form>
+                    
+                    <div class="tarot-result" id="tarotResult">
+                        <h3>တားရော့အဖြေ</h3>
+                        <div class="tarot-answer" id="tarotAnswer">
+                            <!-- Answer will be inserted here -->
+                        </div>
+                        <div class="tarot-explanation">
+                            <h4>အသေးစိတ်ရှင်းလင်းချက်</h4>
+                            <p id="tarotExplanation">
+                                <!-- Explanation will be inserted here -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tarot-card-preview">
+                    <h3>တားရော့ကတ်များ</h3>
+                    <p>
+                        တားရော့ကတ်များသည် သင့်အတွက် လမ်းညွှန်မှုပေးနိုင်သော ရှေးဟောင်းသင်္ကေတများဖြစ်သည်။ 
+                        သင့်မေးခွန်းအတွက် အနီးစပ်ဆုံး အဖြေကို ရှာဖွေပေးနိုင်သည်။
+                    </p>
+                    <div class="tarot-card-grid">
+                        <div class="tarot-card">
+                            <i class="fas fa-crown"></i>
+                            <p>The Emperor</p>
+                        </div>
+                        <div class="tarot-card">
+                            <i class="fas fa-moon"></i>
+                            <p>The Moon</p>
+                        </div>
+                        <div class="tarot-card">
+                            <i class="fas fa-star"></i>
+                            <p>The Star</p>
+                        </div>
+                        <div class="tarot-card">
+                            <i class="fas fa-heart"></i>
+                            <p>The Lovers</p>
+                        </div>
+                        <div class="tarot-card">
+                            <i class="fas fa-balance-scale"></i>
+                            <p>Justice</p>
+                        </div>
+                        <div class="tarot-card">
+                            <i class="fas fa-sun"></i>
+                            <p>The Sun</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -486,26 +1147,32 @@
 
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">🛎️ ဝန်ဆောင်မှုများ (Our Offerings)</h2>
-            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="service-card" style="background-color: var(--white); border-radius: var(--radius); padding: 2.5rem; text-align: center; box-shadow: var(--shadow-subtle);">
-                    <div class="service-icon" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1.5rem;"><i class="fas fa-hand-holding-heart"></i></div>
+            <h2 class="section-title">🛎️ ဝန်ဆောင်မှုများ</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
                     <h3>ဆရာနှင့် တိုက်ရိုက်မေးမြန်းမှု</h3>
                     <p>
                         တားရော့၊ မြန်မာ့ရိုးရာဗေဒင်၊ ကြွေ၊ နမိတ် စသည့် ပညာရပ်စုံဖြင့် သင်၏ ပြဿနာများကို 
                         **တစ်ဦးချင်းအလိုက် အသေးစိတ် ဟောကြား** ပေးခြင်း။
                     </p>
                 </div>
-                <div class="service-card" style="background-color: var(--white); border-radius: var(--radius); padding: 2.5rem; text-align: center; box-shadow: var(--shadow-subtle);">
-                    <div class="service-icon" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1.5rem;"><i class="fas fa-magic"></i></div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
                     <h3>အစီအမံများ စီရင်ဆောင်ရွက်ခြင်း</h3>
                     <p>
                         အိမ်တွင်းရေး၊ စီးပွားရေး၊ ကျန်းမာရေး၊ အချစ်ရေး ပြဿနာများအတွက် လောကီနည်းဖြင့် 
                         **အကျိုးအာနိသင် မြင့်မားသော အစီအမံများ**ကို တိကျစွာ ဆောင်ရွက်ပေးခြင်း။
                     </p>
                 </div>
-                <div class="service-card" style="background-color: var(--white); border-radius: var(--radius); padding: 2.5rem; text-align: center; box-shadow: var(--shadow-subtle);">
-                    <div class="service-icon" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1.5rem;"><i class="fas fa-gavel"></i></div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
                     <h3>လောကီဆိုင်ရာ ပြဿနာဖြေရှင်းခြင်း</h3>
                     <p>
                         ဓာတ်၊ နတ်၊ သိုက်ဆိုင်ရာ၊ အနှောင့်အယှက်များ၊ ရန်သူ့အစီအမံများအား **ထိရောက်စွာ ဖယ်ရှား**ခြင်းနှင့် 
@@ -518,10 +1185,12 @@
 
     <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">💎 မှော်ဂမ္ဘီရအဆောင်ပစ္စည်းများ (Mystic Wares)</h2>
+            <h2 class="section-title">💎 မှော်ဂမ္ဘီရအဆောင်ပစ္စည်းများ</h2>
             <div class="products-grid">
                 <div class="product-card" data-product-id="P001">
-                    <div class="product-img"><i class="fas fa-flask"></i></div>
+                    <div class="product-img">
+                        <i class="fas fa-flask"></i>
+                    </div>
                     <div class="product-content">
                         <h3>ကံထူးဂမ္ဘီရရေမွှေး</h3>
                         <p>ကံစမ်းမဲ၊ စကားပြောဆိုရာတွင် အောင်မြင်မှုနှင့် ထူးခြားသော ကံကောင်းခြင်းများအတွက်</p>
@@ -530,7 +1199,9 @@
                     </div>
                 </div>
                 <div class="product-card" data-product-id="P002">
-                    <div class="product-img"><i class="fas fa-shield-alt"></i></div>
+                    <div class="product-img">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <div class="product-content">
                         <h3>အန္တရာယ်ကာကွယ်သည့်လက်ဖွဲ့</h3>
                         <p>မကောင်းသော အားအင်များနှင့် ဘေးအန္တရာယ်အမျိုးမျိုးမှ အစွမ်းထက်စွာ ကာကွယ်ပေးသည်</p>
@@ -539,16 +1210,20 @@
                     </div>
                 </div>
                 <div class="product-card" data-product-id="P003">
-                    <div class="product-img"><i class="fas fa-coins"></i></div>
+                    <div class="product-img">
+                        <i class="fas fa-coins"></i>
+                    </div>
                     <div class="product-content">
                         <h3>စီးပွားတိုးတက်စေသော ဒင်္ဂါး</h3>
-                        <p>ကုန်သွယ်မှု၊ လုပ်ငန်းအောင်မြင်မှုနှင့် ငွေကြေးဝင်ရောက်မှု တိုးတက်စေရန်</p>
+                        <p>ကုန်သွယ်မှု၊ လုပ်ငန်းအောင်မြင်မှုနှင့် ငွေကြေးဝင်ရောက်မှု တိုး�တက်စေရန်</p>
                         <div class="product-price">၂၇,၀၀၀ ကျပ်</div>
                         <a href="#" class="buy-button cta-button" data-product-name="စီးပွားတိုးတက်စေသော ဒင်္ဂါး">ဝယ်ယူရန်</a>
                     </div>
                 </div>
                 <div class="product-card" data-product-id="P004">
-                    <div class="product-img"><i class="fas fa-heart"></i></div>
+                    <div class="product-img">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <div class="product-content">
                         <h3>ချစ်သူနှောင်းဖွဲ့စေသော အဆောင်</h3>
                         <p>အချစ်ရေး၊ အိမ်ထောင်ရေးတွင် သာယာမှုနှင့် ချစ်သူရည်းစားများ ဆက်ဆံရေး တိုးတက်စေရန်</p>
@@ -562,23 +1237,23 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">📞 ဆက်သွယ်ရန် (Get In Touch)</h2>
-            <div class="contact-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-                <div class="contact-info" style="padding: 2rem; background-color: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-subtle);">
+            <h2 class="section-title">📞 ဆက်သွယ်ရန်</h2>
+            <div class="contact-content">
+                <div class="contact-info">
                     <h3>တိုက်ရိုက်ဆက်သွယ်မေးမြန်းရန်</h3>
                     <p>ဆရာ ထူးသစ်စျာန်နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် အောက်ပါနည်းလမ်းများကို အသုံးပြုနိုင်ပါသည်။</p>
                     <div style="margin-top: 1.5rem;">
                         <p><i class="fas fa-phone-alt" style="color: var(--accent-color); margin-right: 0.5rem;"></i> <strong>ဖုန်း:</strong> ၀၉-၆၈၈၅၆၆၉၉၇</p>
-                        <p><i class="fab fa-facebook-messenger" style="color: var(--accent-color); margin-right: 0.5rem;"></i> <strong>Messenger:</strong> <a href="https://m.me/htoothitzyan" style="color: var(--primary-color);">ဆရာ ထူးသစ်စျာန်</a></p>
+                        <p><i class="fab fa-facebook-messenger" style="color: var(--accent-color); margin-right: 0.5rem;"></i> <strong>Messenger:</strong> ဆရာ ထူးသစ်စျာန်</p>
                         <p><i class="fas fa-map-marker-alt" style="color: var(--accent-color); margin-right: 0.5rem;"></i> <strong>တည်နေရာ:</strong> ရန်ကုန်မြို့</p>
                     </div>
                 </div>
-                <div class="contact-form" style="padding: 2rem; background-color: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-subtle);">
+                <div class="contact-form">
                     <form id="contactForm">
                         <input type="text" id="contactName" placeholder="သင့်နာမည်" required>
                         <input type="email" id="contactEmail" placeholder="သင့်အီးမေးလ်" required>
                         <input type="tel" id="contactPhone" placeholder="သင့်ဖုန်းနံပါတ်" required>
-                        <textarea id="contactMessage" placeholder="သင့်ပြဿနာအကြောင်းအကျဉ်းချုံး" required style="height: 150px; resize: vertical;"></textarea>
+                        <textarea id="contactMessage" placeholder="သင့်ပြဿနာအကြောင်းအကျဉ်းချုံး" required></textarea>
                         <button type="submit" class="submit-button cta-button">မက်ဆေ့ပို့ရန်</button>
                     </form>
                 </div>
@@ -586,37 +1261,39 @@
         </div>
     </section>
 
-    <footer style="background-color: var(--primary-color); color: var(--white); padding: 2rem 0; text-align: center;">
-        <div class="container footer-content" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+    <footer>
+        <div class="container footer-content">
             <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
-                <img src="https://i.ibb.co/8LPhfcNz/Mon-25-08-2025-06-51-38.png" alt="ဆရာ ထူးသစ်စျာန် လိုဂို" class="logo-img">
+                <div class="logo-img">ထ</div>
                 <div class="logo-text">ဆရာ ထူးသစ်စျာန်</div>
             </div>
-            <div class="footer-links" style="display: flex; gap: 2rem; margin: 1rem 0;">
-                <a href="#home" data-scroll style="color: var(--white); text-decoration: none;">ပင်မစာမျက်နှာ</a>
-                <a href="#baydin" data-scroll style="color: var(--white); text-decoration: none;">ဗေဒင်</a>
-                <a href="#services" data-scroll style="color: var(--white); text-decoration: none;">ဝန်ဆောင်မှုများ</a>
-                <a href="#products" data-scroll style="color: var(--white); text-decoration: none;">အဆောင်ပစ္စည်းများ</a>
-                <a href="#contact" data-scroll style="color: var(--white); text-decoration: none;">ဆက်သွယ်ရန်</a>
+            <div class="footer-links">
+                <a href="#home" data-scroll>ပင်မစာမျက်နှာ</a>
+                <a href="#baydin" data-scroll>ဗေဒင်</a>
+                <a href="#assistant-baydin" data-scroll>လက်ထောက်ဗေဒင်</a>
+                <a href="#tarot-reading" data-scroll>တားရော့အဟော</a>
+                <a href="#services" data-scroll>ဝန်ဆောင်မှုများ</a>
+                <a href="#products" data-scroll>အဆောင်ပစ္စည်းများ</a>
+                <a href="#contact" data-scroll>ဆက်သွယ်ရန်</a>
             </div>
-            <p class="copyright" style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">© 2023 ဆရာ ထူးသစ်စျာန် - ဂမ္ဘီရလောကီပညာရှင် | မူပိုင်ခွင့်များ လုံးဝ ခြုံ့ထားပါသည်။</p>
+            <p class="copyright">© 2023 ဆရာ ထူးသစ်စျာန် - ဂမ္ဘီရလောကီပညာရှင် | မူပိုင်ခွင့်များ လုံးဝ ခြုံ့ထားပါသည်။</p>
         </div>
     </footer>
     
     <div class="mobile-footer-nav">
         <ul>
-            <li><a href="#home" data-scroll class="active" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-decoration: none; color: var(--secondary-color); font-size: 0.75rem;"><i class="fas fa-home" style="font-size: 1.2rem; margin-bottom: 3px;"></i> ပင်မစာမျက်နှာ</a></li>
-            <li><a href="#baydin" data-scroll style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-decoration: none; color: var(--secondary-color); font-size: 0.75rem;"><i class="fas fa-user-graduate" style="font-size: 1.2rem; margin-bottom: 3px;"></i> ဗေဒင်</a></li>
-            <li><a href="#products" data-scroll style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-decoration: none; color: var(--secondary-color); font-size: 0.75rem;"><i class="fas fa-gem" style="font-size: 1.2rem; margin-bottom: 3px;"></i> အဆောင်ပစ္စည်းများ</a></li>
-            <li><a href="#" id="cartLink" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-decoration: none; color: var(--secondary-color); font-size: 0.75rem;"><i class="fas fa-shopping-cart" style="font-size: 1.2rem; margin-bottom: 3px;"></i> စျေးဝယ်</a></li>
-            <li><a href="#contact" data-scroll style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-decoration: none; color: var(--secondary-color); font-size: 0.75rem;"><i class="fas fa-phone-alt" style="font-size: 1.2rem; margin-bottom: 3px;"></i> ဆက်သွယ်ရန်</a></li>
+            <li><a href="#home" data-scroll class="active"><i class="fas fa-home"></i> ပင်မစာမျက်နှာ</a></li>
+            <li><a href="#baydin" data-scroll><i class="fas fa-user-graduate"></i> ဗေဒင်</a></li>
+            <li><a href="#assistant-baydin" data-scroll><i class="fas fa-robot"></i> AI</a></li>
+            <li><a href="#tarot-reading" data-scroll><i class="fas fa-cards"></i> တားရော့</a></li>
+            <li><a href="#contact" data-scroll><i class="fas fa-phone-alt"></i> ဆက်သွယ်ရန်</a></li>
         </ul>
     </div>
 
     <div id="orderModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" style="color: var(--dark-text); float: right; font-size: 2rem; font-weight: bold; position: absolute; top: 10px; right: 20px; cursor: pointer;">&times;</span>
-            <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.6rem;">**<span id="modalProductName"></span>** ဝယ်ယူမှုပုံစံရွေးချယ်ရန်</h3>
+            <span class="close-btn">&times;</span>
+            <h3>**<span id="modalProductName"></span>** ဝယ်ယူမှုပုံစံရွေးချယ်ရန်</h3>
             
             <div class="payment-options">
                 <button class="payment-btn active" id="onlinePayBtn" data-type="online">
@@ -639,16 +1316,16 @@
                         ငွေလွှဲပြေစာကို ဆရာ့ Facebook Messenger သို့ ပို့ပေးရန် လိုအပ်ပါသည်။
                     </p>
                     <hr style="margin: 1rem 0;">
-                    <label for="onlineName" style="display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--primary-color);">သင့်နာမည်</label>
+                    <label for="onlineName">သင့်နာမည်</label>
                     <input type="text" id="onlineName" required placeholder="သင့်နာမည်">
                     
-                    <label for="onlinePhone" style="display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--primary-color);">သင့်ဖုန်းနံပါတ်</label>
+                    <label for="onlinePhone">သင့်ဖုန်း�နံပါတ်</label>
                     <input type="tel" id="onlinePhone" required placeholder="၀၉-xxxxxxx">
                 </div>
                 
                 <div class="order-form-group" id="codForm">
                     <div class="cod-location-fields">
-                        <label for="codRegion" style="display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--primary-color);">တိုင်းဒေသကြီး / ပြည်နယ်</label>
+                        <label for="codRegion">တိုင်းဒေသကြီး / ပြည်နယ်</label>
                         <select id="codRegion" required>
                             <option value="">ရွေးချယ်ပါ</option>
                             <option value="ရန်ကုန်">ရန်ကုန်</option>
@@ -667,17 +1344,17 @@
                             <option value="နေပြည်တော်">နေပြည်တော်</option>
                         </select>
                         
-                        <label for="codTownship" style="display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--primary-color);">မြို့နယ်</label>
+                        <label for="codTownship">မြို့နယ်</label>
                         <input type="text" id="codTownship" required placeholder="မြို့နယ်အမည် (ဥပမာ: ပန်းတနော်)">
                         
-                        <label for="codAddress" style="display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--primary-color);">အသေးစိတ်လိပ်စာ</label>
+                        <label for="codAddress">အသေးစိတ်လိပ်စာ</label>
                         <input type="text" id="codAddress" required placeholder="အမှတ်၊ လမ်း၊ ရပ်ကွက်">
                     </div>
                     
-                    <label for="codName" style="display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--primary-color);">သင့်နာမည်</label>
+                    <label for="codName">သင့်နာမည်</label>
                     <input type="text" id="codName" required placeholder="သင့်နာမည်">
                     
-                    <label for="codPhone" style="display: block; margin-bottom: 0.5rem; font-weight: 700; color: var(--primary-color);">သင့်ဖုန်းနံပါတ်</label>
+                    <label for="codPhone">သင့်ဖုန်း�နံပါတ်</label>
                     <input type="tel" id="codPhone" required placeholder="၀၉-xxxxxxx">
                 </div>
                 
@@ -689,12 +1366,12 @@
     </div>
 
     <script>
-        // Baydin Data Structure - The knowledge base
+        // Baydin Data Structure
         const baydinData = {
             day: {
                 title: "ယနေ့ကံဇာတာ",
                 icon: "fa-calendar-day",
-                description: "သင့်မွေးနေ့အရ ယနေ့သည် ကံကောင်းသောနေ့ဖြစ်သည်။ စီးပွားရေးလုပ်ငန်းများ တိုးတက်ကောင်းမွန်ပြီး အချစ်ရေးတွင်လည်း အောင်မြင်မှုရရှိနိုင်သည်။"
+                description: "သင့်မွေးနေ့အရ ယနေ့သည် ကံကောင်းသောနေ့ဖြစ်သည်။ စီးပွားရေးလုပ်ငန်းများ တိုး�တက်ကောင်းမွန်ပြီး အချစ်ရေးတွင်လည်း အောင်မြင်မှုရရှိနိုင်သည်။"
             },
             week: {
                 title: "တစ်ပတ်စာဇာတာ",
@@ -704,7 +1381,7 @@
                     1: { title: "တနင်္လာသားသမီးများအတွက် ယခုအပတ်", description: "ယခုအပတ်သည် စီးပွားရေးအတွက် အလွန်ကောင်းမွန်သောအချိန်ဖြစ်သည်။ လုပ်ငန်းဆောင်တာများ အောင်မြင်ပြီး ငွေဝင်လမ်းပွင့်မည်။" },
                     2: { title: "အင်္ဂါသားသမီးများအတွက် ယခုအပတ်", description: "ယခုအပတ်တွင် မမျှော်လင့်သော ခရီးစဉ်များ ပေါ်လာနိုင်သည်။ ဆက်ဆံရေးတွင် ပိုမိုနွေးထွေးမှုရှိရန် လိုအပ်ပါသည်။" },
                     3: { title: "ဗုဒ္ဓဟူးသားသမီးများအတွက် ယခုအပတ်", description: "ပညာရေးနှင့် အတွေးအခေါ်ပိုင်းဆိုင်ရာ တိုးတက်မှုများ ရရှိမည့်အပတ်ဖြစ်သည်။ အသစ်စတင်ရန် အကောင်းဆုံးအချိန်ဖြစ်သည်။" },
-                    4: { title: "ကြာသပတေးသားသမီးများအတွက် ယခုအပတ်", description: "ငွေကြေးနှင့် ရင်းနှီးမြှုပ်နှံမှုဆိုင်ရာ ကောင်းကျိုးများ ရရှိမည့်အပတ်ဖြစ်သည်။ လူကြီးမိဘများ၏ အကူအညီရမည်။" },
+                    4: { title: "ကြာသပတေးသားသမီးများအတွက် ယခုအပတ်", description: "ငွေကြေး�နှင့် ရင်းနှီးမြှုပ်နှံမှုဆိုင်ရာ ကောင်းကျိုးများ ရရှိမည့်အပတ်ဖြစ်သည်။ လူကြီးမိဘများ၏ အကူအညီရမည်။" },
                     5: { title: "သောကြာသားသမီးများအတွက် ယခုအပတ်", description: "အချစ်ရေးနှင့် လူမှုဆက်ဆံရေးအတွက် အထူးကောင်းမွန်သော အပတ်ဖြစ်သည်။ ပျော်ရွှင်စရာ ကိစ္စရပ်များနှင့် ကြုံတွေ့ရမည်။" },
                     6: { title: "စနေသားသမီးများအတွက် ယခုအပတ်", description: "မိသားစုနှင့် အိမ်တွင်းရေး ကိစ္စများ အဆင်ပြေပြေ ဖြေရှင်းနိုင်မည်။ အလုပ်တွင် ရိုးသားမှုဖြင့် အောင်မြင်မည်။" }
                 }
@@ -724,8 +1401,38 @@
             }
         };
 
+        // Tarot Yes/No Answers and Explanations
+        const tarotAnswers = {
+            yes: {
+                text: "YES",
+                class: "yes-answer",
+                explanations: [
+                    "တားရော့ကတ်များက သင့်အတွက် အပြုသဘောဆောင်သော အချက်ပြမှုများကို ပြသနေသည်။ သင့်ရည်မှန်းချက်အောင်မြင်ရန် အလားအလာကောင်းရှိသည်။",
+                    "သင့်မေးခွန်းအတွက် အဖြေသည် ဟုတ်ကဲ့ဖြစ်သည်။ ယခုအချိန်သည် သင့်အတွက် ကောင်းမွန်သော အခွင့်အရေးများ ရရှိနိုင်သည့် အချိန်ဖြစ်သည်။",
+                    "တားရော့ကတ်များက သင့်အား ဆက်လက်လုပ်ဆောင်ရန် အားပေးနေသည်။ သင့်ရဲ့ဆုံးဖြတ်ချက်သည် မှန်ကန်ပြီး အောင်မြင်မှုဆီသို့ ဦးတည်နေသည်။"
+                ]
+            },
+            no: {
+                text: "NO",
+                class: "no-answer",
+                explanations: [
+                    "တားရော့ကတ်များက ယခုအချိန်တွင် ဆက်လက်လုပ်ဆောင်ရန် မသင့်တော်ကြောင်း ပြသနေသည်။ နောက်ထပ်အချိန်ယူပြီး စဉ်းစားသင့်သည်။",
+                    "သင့်မေးခွန်းအတွက် အဖြေသည် မဟုတ်ပါဖြစ်သည်။ ယခုအချိန်တွင် ဤကိစ္စကို ဆက်လက်လုပ်ဆောင်ရန် မသင့်တော်ပါ။",
+                    "တားရော့ကတ်များက သင့်အား ယခုအဆင့်တွင် ရပ်တန့်ထားရန် အကြံပြုနေသည်။ နောက်ပိုင်းတွင် ပိုမိုကောင်းမွန်သော အခွင့်အရေးများ ပေါ်ထွက်လာနိုင်သည်။"
+                ]
+            },
+            maybe: {
+                text: "MAYBE",
+                class: "maybe-answer",
+                explanations: [
+                    "တားရော့ကတ်များက ရှင်းလင်းချက်မရှိသော အခြေအနေကို ပြသနေသည်။ သင့်ဆုံးဖြတ်ချက်သည် အခြေအနေအပေါ် မူတည်နေသည်။",
+                    "သင့်မေးခွန်းအတွက် အဖြေသည် မသေချာပါ။ သင့်လုပ်ဆောင်ချက်များနှင့် အခြေအနေများအပေါ် မူတည်ပြီး ရလဒ်ပြောင်းလဲနိုင်သည်။",
+                    "တားရော့ကတ်များက ယခုအချိန်တွင် ရလဒ်အတွက် အာမခံချက်မရှိကြောင်း ပြသနေသည်။ ဆက်လက်စောင့်ကြည့်ပြီး အခြေအနေများကို သုံးသပ်သင့်သည်။"
+                ]
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
-            // DOM Elements Mapping (Clear and concise)
             const birthDateInput = document.getElementById('birthDate');
             const calculateBtn = document.getElementById('calculateBtn');
             const resultDisplay = document.getElementById('resultDisplay');
@@ -742,22 +1449,20 @@
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navMenu = document.getElementById('mainNav');
             const contactForm = document.getElementById('contactForm');
+            const tarotForm = document.getElementById('tarotForm');
+            const tarotResult = document.getElementById('tarotResult');
+            const tarotAnswer = document.getElementById('tarotAnswer');
+            const tarotExplanation = document.getElementById('tarotExplanation');
 
-            // --- Initial Setup ---
+            // Initial Setup
             birthDateInput.value = new Date().toISOString().split('T')[0];
             
-            // Utility function for random item
-            function getRandomItem(arr) {
-                return arr[Math.floor(Math.random() * arr.length)];
-            }
-
-            // --- Baydin Logic ---
+            // Baydin Section Handlers
             function showBaydinResult(type) {
                 const dateInput = birthDateInput.value;
                 
-                // CRITICAL: Validation for date selection
                 if (!dateInput) {
-                    alert('⚠️ Boss Baby၊ ဗေဒင်ဟောစာတမ်းကြည့်ရန် မွေးနေ့ရက်စွဲကို ရွေးချယ်ပေးပါဦး။ (Skeptical but real)');
+                    alert('⚠️ Boss Baby၊ ဗေဒင်ဟောစာတမ်းကြည့်ရန် မွေးနေ့ရက်စွဲကို ရွေးချယ်ပေးပါဦး။');
                     return;
                 }
                 
@@ -787,7 +1492,6 @@
                 document.getElementById('resultTitle').textContent = resultTitle;
                 document.getElementById('resultDescription').textContent = resultDescription;
                 
-                // Practical Advice generation (no sugar-coating)
                 const details = [
                     `✨ ကံကောင်းစေသော အရောင်: ${getRandomItem(['ရွှေရောင်', 'အဖြူရောင်', 'အညိုရောင်'])}`,
                     `🤝 ဆောင်ရွက်သင့်သည့်ကိစ္စ: ${getRandomItem(['ကုသိုလ်ဒါနပြုခြင်း', 'လုပ်ဖော်ကိုင်ဖက်များနှင့် ဆွေးနွေးခြင်း', 'ခရီးထွက်ရန်ပြင်ဆင်ခြင်း'])}`,
@@ -810,21 +1514,52 @@
                 showBaydinResult('day');
             });
             
-            // --- E-Commerce/Modal Workflow ---
-
+            // Tarot Reading
+            tarotForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const question = document.getElementById('tarotQuestion').value;
+                
+                if (!question) {
+                    alert('ကျေးဇူးပြု၍ သင့်မေးခွန်းကို ရေးသားပေးပါ။');
+                    return;
+                }
+                
+                // Generate random answer (Yes, No, or Maybe)
+                const answerTypes = ['yes', 'no', 'maybe'];
+                const randomAnswerType = answerTypes[Math.floor(Math.random() * answerTypes.length)];
+                const answer = tarotAnswers[randomAnswerType];
+                
+                // Display the answer
+                tarotAnswer.textContent = answer.text;
+                tarotAnswer.className = `tarot-answer ${answer.class}`;
+                
+                // Display a random explanation
+                const randomExplanation = answer.explanations[Math.floor(Math.random() * answer.explanations.length)];
+                tarotExplanation.textContent = randomExplanation;
+                
+                tarotResult.classList.add('active');
+                tarotResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            
+            // E-Commerce Flow
             buyButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     
                     const productName = this.getAttribute('data-product-name');
-                    const productID = this.closest('.product-card').getAttribute('data-product-id');
+                    const productCard = this.closest('.product-card');
+                    const productID = productCard ? productCard.getAttribute('data-product-id') : 'N/A';
 
                     document.getElementById('modalProductName').textContent = productName;
                     document.getElementById('orderedProductName').value = productName;
                     document.getElementById('orderedProductID').value = productID;
                     
-                    // Reset to default payment type (online) for consistency
-                    onlinePayBtn.click(); // Programmatically click the online button
+                    document.getElementById('selectedPaymentType').value = 'online';
+                    onlinePayBtn.classList.add('active');
+                    codBtn.classList.remove('active');
+                    onlineForm.classList.add('active');
+                    codForm.classList.remove('active');
                     
                     modal.style.display = 'block';
                 });
@@ -837,7 +1572,6 @@
                 }
             });
             
-            // Payment Option Toggle Logic
             [onlinePayBtn, codBtn].forEach(btn => {
                 btn.addEventListener('click', function() {
                     const type = this.getAttribute('data-type');
@@ -848,69 +1582,50 @@
                     
                     selectedPaymentTypeInput.value = type;
                     
-                    // Toggle forms based on selection
                     if (type === 'online') {
                         onlineForm.classList.add('active');
                         codForm.classList.remove('active');
-                        // Ensure COD fields are NOT required if Online is active
-                        codForm.querySelectorAll('input, select').forEach(el => el.removeAttribute('required'));
                     } else {
                         onlineForm.classList.remove('active');
                         codForm.classList.add('active');
-                        // Ensure COD fields ARE required if COD is active
-                        codForm.querySelectorAll('input, select').forEach(el => el.setAttribute('required', 'required'));
                     }
                 });
             });
             
-            // Order Form Submission Logic
             orderForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 const paymentType = selectedPaymentTypeInput.value;
+                const name = paymentType === 'online' ? document.getElementById('onlineName').value : document.getElementById('codName').value;
+                const phone = paymentType === 'online' ? document.getElementById('onlinePhone').value : document.getElementById('codPhone').value;
                 const product = document.getElementById('orderedProductName').value;
                 
-                let name, phone, details = '';
-
-                if (paymentType === 'online') {
-                    name = document.getElementById('onlineName').value;
-                    phone = document.getElementById('onlinePhone').value;
-                } else { // COD Logic
-                    name = document.getElementById('codName').value;
-                    phone = document.getElementById('codPhone').value;
+                let details = '';
+                if (paymentType === 'cod') {
                     const region = document.getElementById('codRegion').value;
                     const township = document.getElementById('codTownship').value;
                     const address = document.getElementById('codAddress').value;
-
-                    if (!region || !township || !address || !name || !phone) {
-                        alert('⚠️ COD အတွက် လိုအပ်သော အချက်အလက်များ (တိုင်းဒေသကြီး၊ မြို့နယ်၊ လိပ်စာ၊ အမည်၊ ဖုန်း) ကို ပြည့်စုံစွာ ဖြည့်သွင်းပေးပါဦး Boss Baby. (Practical & Straight to the point)');
-                        return;
-                    }
-                    details = `📍 ပို့ဆောင်ရန်လိပ်စာ: ${region}, ${township}, ${address}`;
+                    details = `တိုင်း/ပြည်နယ်: ${region}, မြို့နယ်: ${township}, လိပ်စာ: ${address}`;
                 }
 
-                // Corporate Jargon mixed with relaxed vibe for the final alert
                 const message = 
-                    `✅ **ဝယ်ယူမှု Finalized! (Project Closure)**\n` +
+                    `✅ **ဝယ်ယူမှု အတည်ပြုချက်**\n` +
                     `---------------------------------------\n` +
-                    `📦 Item SKU: ${document.getElementById('orderedProductID').value} (${product})\n` +
-                    `💰 Payment Method: ${paymentType === 'online' ? 'Online Transfer (WAV/KPay/Banking)' : 'Cash on Delivery (COD)'}\n` +
-                    `👤 Client Name: ${name}\n` +
-                    `📞 Contact Channel: ${phone}\n` +
-                    (details ? `${details}\n` : `` ) +
+                    `📦 ပစ္စည်း: ${product}\n` +
+                    `💰 ငွေချေပုံစံ: ${paymentType === 'online' ? 'Online ငွေချေ (KBZ/Wave)' : 'အိမ်ရောက်ငွေချေ (COD)'}\n` +
+                    `👤 ဝယ်သူ: ${name}\n` +
+                    `📞 ဖုန်း: ${phone}\n` +
+                    (details ? `📍 ပို့ဆောင်ရန်: ${details}` : `\n` ) +
                     `---------------------------------------\n` +
-                    `🙏 (Encouraging, empathetic) အားလုံး အဆင်ပြေစေဖို့ ဆရာ စီမံဆောင်ရွက်ပေးပါ့မယ်။ Messenger သို့ ဆက်သွယ်ပြီး Order ကို အတည်ပြုပေးပါ။`;
+                    `ကျေးဇူးပြု၍ ဆရာ့ Messenger သို့ ဆက်သွယ်ပြီး အတည်ပြုပေးပါ။`;
                 
                 alert(message);
-                
-                // For live use, use an actual endpoint or messenger link here
-                // window.location.href = `https://m.me/htoothitzyan?text=${encodeURIComponent(message)}`;
                 
                 modal.style.display = 'none';
                 orderForm.reset();
             });
             
-            // Contact Form Submission Logic (Sent to Messenger)
+            // Contact Form
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -920,29 +1635,42 @@
                 const message = document.getElementById('contactMessage').value;
                 
                 const contactMessage = 
-                    `📩 **New Lead! (Initial Contact)**\n` +
+                    `📩 **ဆက်သွယ်ရန် မက်ဆေ့ပို့ရန်**\n` +
                     `---------------------------------------\n` +
                     `👤 အမည်: ${name}\n` +
                     `📧 အီးမေးလ်: ${email}\n` +
                     `📞 ဖုန်း: ${phone}\n` +
-                    `💬 Inquiry: ${message}\n` +
+                    `💬 မက်ဆေ့: ${message}\n` +
                     `---------------------------------------\n` +
-                    `📞 ဆက်လက်ဆွေးနွေးရန် ဆရာ့ Messenger သို့ ဆက်သွယ်ပေးလိုက်ပါ (Project Handover).`;
+                    `ကျေးဇူးပြု၍ ဆရာ့ Messenger သို့ ဆက်သွယ်ပြီး အတည်ပြုပေးပါ။`;
                 
                 alert(contactMessage);
+                
                 contactForm.reset();
             });
             
-            // --- Navigation & UI Handlers ---
-            
-            // Mobile Menu Toggle
+            // Navigation
             mobileMenuBtn.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
                 this.querySelector('i').classList.toggle('fa-bars');
                 this.querySelector('i').classList.toggle('fa-times');
             });
             
-            // Scroll Reveal Observer
+            document.querySelectorAll('a[data-scroll], .mobile-footer-nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                        }
+                    }
+                    
+                    document.querySelectorAll('.mobile-footer-nav a').forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Scroll Reveal
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -953,6 +1681,10 @@
             }, observerOptions);
 
             sections.forEach(section => observer.observe(section));
+            
+            function getRandomItem(arr) {
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
         });
     </script>
 </body>
