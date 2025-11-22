@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="my">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔮 ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်</title>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&family=Inter:wght@400;600;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* ၁။ ပင်မကိန်းရှင်များနှင့် အရောင်စုံများ (နက်ဗျူလာ/မှော်ဆရာ Mode) */
         :root {
             /* နက်နဲသော အာကာသ အရောင်များ */
-            --color-primary: #5E35B1; /* Deep Royal Purple (Main Accent) */
-            --color-secondary: #00897B; /* Teal/Jade (Secondary Accent) */
-            --color-bg-deep: #0C0032; /* Nearly Black Blue/Purple */
-            --color-bg-light: #180547; /* Background Base */
-            --color-text-main: #E0E0E0; /* Light Gray for Readability */
-            --color-text-accent: #FFEB3B; /* Vivid Gold/Yellow (Highlight/Glow) */
+            --color-primary: #5E35B1;
+            /* Deep Royal Purple (Main Accent) */
+            --color-secondary: #00897B;
+            /* Teal/Jade (Secondary Accent) */
+            --color-bg-deep: #0C0032;
+            /* Nearly Black Blue/Purple */
+            --color-bg-light: #180547;
+            /* Background Base */
+            --color-text-main: #E0E0E0;
+            /* Light Gray for Readability */
+            --color-text-accent: #FFEB3B;
+            /* Vivid Gold/Yellow (Highlight/Glow) */
             --color-border-glow: rgba(94, 53, 177, 0.7);
-            
+
             /* နျူမောဖစ်/အလင်းတန်း အသွင်အပြင်များ */
             --shadow-inner: inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(62, 39, 117, 0.2);
             --shadow-outer: 10px 10px 20px rgba(0, 0, 0, 0.6), -10px -10px 20px rgba(62, 39, 117, 0.2);
@@ -34,6 +41,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* Console font is used for clock display for that tech vibe */
+            font-family: var(--font-sans), console; 
         }
 
         html {
@@ -52,7 +61,7 @@
             padding-bottom: 70px;
             transition: background-color var(--transition-speed);
         }
-        
+
         .container {
             max-width: 1300px;
             margin: 0 auto;
@@ -70,7 +79,7 @@
             padding: 4px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-        
+
         .marquee-container marquee {
             font-size: 1.1rem;
             font-weight: 700;
@@ -84,7 +93,8 @@
             padding: 0.8rem 0;
             position: fixed;
             width: 100%;
-            top: 35px; /* စာရွေ့အောက်တွင် */
+            top: 35px;
+            /* စာရွေ့အောက်တွင် */
             z-index: 1000;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             border-bottom: 2px solid var(--color-border-glow);
@@ -116,19 +126,19 @@
             margin-right: 10px;
             box-shadow: var(--glow-effect);
         }
-        
+
         .logo-text {
             font-size: 1.8rem;
             font-weight: 700;
             font-family: var(--font-serif);
             color: var(--color-text-main);
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li a {
             color: var(--color-text-main);
             text-decoration: none;
@@ -138,13 +148,13 @@
             transition: color var(--transition-speed), background-color var(--transition-speed), box-shadow var(--transition-speed);
             border-radius: 6px;
         }
-        
+
         nav ul li a:hover {
             color: var(--color-text-accent);
             background-color: rgba(94, 53, 177, 0.1);
             box-shadow: 0 0 5px var(--color-primary);
         }
-        
+
         /* မိုဘိုင်း လမ်းညွှန် */
         .mobile-menu-btn {
             display: none;
@@ -158,7 +168,7 @@
             background: radial-gradient(circle at center, rgba(24, 5, 71, 0.7) 0%, rgba(12, 0, 50, 0) 70%);
             text-align: center;
             padding: 8rem 0;
-            margin-top: -100px; 
+            margin-top: -100px;
             padding-top: 14rem;
         }
 
@@ -171,7 +181,7 @@
             text-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
             margin-bottom: 1rem;
         }
-        
+
         .hero-content p {
             font-size: 1.2rem;
             color: var(--color-text-main);
@@ -189,7 +199,7 @@
             font-weight: 700;
             text-shadow: 0 0 10px rgba(0, 137, 123, 0.5);
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
@@ -207,12 +217,12 @@
             transform: translateY(20px);
             transition: opacity 1s ease-out, transform 1s ease-out;
         }
-        
+
         section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .card-style {
             background-color: var(--color-bg-light);
             border-radius: var(--radius);
@@ -222,15 +232,15 @@
             box-shadow: var(--shadow-outer);
             border: 1px solid var(--color-border-glow);
         }
-        
+
         .card-style:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), var(--glow-effect);
         }
-        
+
         /* ပြက္ခဒိန် Container သီးသန့် အပြင်အဆင်များ */
         .mm-calendar-container {
-            max-width: 450px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
             box-shadow: var(--shadow-outer);
@@ -239,7 +249,7 @@
             padding: 1.5rem;
             border: 1px solid var(--color-border-glow);
         }
-        
+
         .mm-calendar-container h3 {
             color: var(--color-primary);
             font-family: var(--font-serif);
@@ -247,14 +257,68 @@
             margin-bottom: 1rem;
         }
 
-        #mmcal-display {
+        /* ---------------------------------------------------- */
+        /* 💡 NEW: DIGITAL CLOCK STYLES (Adapted to Nebula Theme) */
+        /* ---------------------------------------------------- */
+
+        .clock {
+            position: relative;
             width: 100%;
-            height: 120px; 
-            border: 2px dashed rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            overflow: hidden;
-            display: block;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.2); /* Darker transparent background for contrast */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            border-radius: 10px;
+            border: 1px solid var(--color-primary); /* Border glow */
+            backdrop-filter: blur(5px);
         }
+
+        .clock-container { /* Renamed from .container to avoid conflict */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            /* Use a monospaced font for that digital feel */
+            font-family: 'Inter', monospace;
+        }
+
+        .clock-container h2 {
+            font-size: 3.5em; /* Slightly bigger */
+            color: var(--color-text-main);
+            font-weight: 700;
+        }
+        
+        .clock-container .dot {
+            color: var(--color-secondary);
+            font-size: 3em;
+        }
+
+        .clock-container h2:nth-child(odd) {
+            padding: 5px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05); /* Subtle background for digits */
+            box-shadow: var(--shadow-inner);
+            margin: 0 5px;
+        }
+
+        .clock-container h2#seconds {
+            color: var(--color-text-accent); /* Vivid Gold for seconds */
+            text-shadow: 0 0 10px var(--color-text-accent);
+        }
+
+        .clock-container span {
+            position: relative;
+            top: -30px;
+            font-size: 1em;
+            color: var(--color-primary);
+            font-weight: 800;
+            margin-left: 5px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* 💡 END: DIGITAL CLOCK STYLES */
+        /* ---------------------------------------------------- */
+
 
         /* လောကနီတိ အပိုင်း */
         .loka-neeti-content {
@@ -283,7 +347,7 @@
             border-radius: 8px;
             box-shadow: var(--shadow-inner);
         }
-        
+
         /* ၇။ ခလုတ် အပြင်အဆင် (လုပ်ဆောင်ချက် ဦးတည်သော) */
         .cta-button {
             display: inline-block;
@@ -299,7 +363,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .cta-button {
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             color: var(--color-text-accent);
@@ -317,7 +381,7 @@
             transform: scale(1.05) translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7), 0 0 20px var(--color-text-accent);
         }
-        
+
         /* ဗေဒင်မှော်ဆရာ သီးသန့် အပြင်အဆင်များ */
         .baydin-card {
             background-color: var(--color-bg-light);
@@ -328,7 +392,7 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .baydin-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px var(--color-secondary);
@@ -342,7 +406,7 @@
         .step-content.active {
             display: block;
         }
-        
+
         .selection-options button {
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--color-text-main);
@@ -352,14 +416,15 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
-        .selection-options button:hover, .selection-options button.selected {
+
+        .selection-options button:hover,
+        .selection-options button.selected {
             background-color: var(--color-primary);
             color: var(--color-text-accent);
             border-color: var(--color-text-accent);
             box-shadow: 0 0 10px var(--color-primary);
         }
-        
+
         .loading-screen {
             text-align: center;
             padding: 5rem 0;
@@ -378,8 +443,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .result-box {
@@ -409,6 +479,23 @@
             margin-bottom: 1rem;
         }
         
+        /* NEW: Toggle button style within result-box */
+        #toggleDetailsBtn {
+            background: var(--color-primary);
+            color: var(--color-text-accent);
+            border: 1px solid var(--color-text-accent);
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        #toggleDetailsBtn:hover {
+            background: var(--color-secondary);
+            box-shadow: 0 0 10px var(--color-secondary);
+        }
+
         /* တားရော့ သီးသန့် အပြင်အဆင်များ */
         .tarot-answer {
             font-size: 4rem;
@@ -420,9 +507,17 @@
             border-radius: 10px;
         }
 
-        .yes-answer { color: #4CAF50; }
-        .no-answer { color: #F44336; }
-        .maybe-answer { color: #FFC107; }
+        .yes-answer {
+            color: #4CAF50;
+        }
+
+        .no-answer {
+            color: #F44336;
+        }
+
+        .maybe-answer {
+            color: #FFC107;
+        }
 
         /* ထုတ်ကုန် ကတ်များ */
         .product-card {
@@ -440,7 +535,7 @@
 
         /* Modal (ပြတင်းပေါက်) အပြင်အဆင်များ */
         .modal {
-            display: none; 
+            display: none;
             position: fixed;
             z-index: 2000;
             left: 0;
@@ -469,12 +564,13 @@
             font-weight: bold;
         }
 
-        .close-btn:hover, .close-btn:focus {
+        .close-btn:hover,
+        .close-btn:focus {
             color: #fff;
             text-decoration: none;
             cursor: pointer;
         }
-        
+
         .payment-options button {
             width: 48%;
             padding: 10px;
@@ -484,22 +580,22 @@
             border: 1px solid var(--color-border-glow);
             transition: all 0.3s;
         }
-        
+
         .payment-options button.active {
             background-color: var(--color-secondary);
             color: var(--color-text-accent);
             border-color: var(--color-text-accent);
         }
-        
+
         .payment-form {
             display: none;
             margin-top: 1.5rem;
         }
-        
+
         .payment-form.active {
             display: block;
         }
-        
+
         /* ၈။ အောက်ခြေနှင့် အထောက်အကူများ (သန့်ရှင်းရေး) */
         footer {
             background-color: var(--color-bg-light);
@@ -520,9 +616,10 @@
             justify-content: space-around;
             padding: 0.5rem 0;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-            display: none; /* မူလက ဝှက်ထားသည်၊ မိုဘိုင်းတွင် ပြသမည် */
+            display: none;
+            /* မူလက ဝှက်ထားသည်၊ မိုဘိုင်းတွင် ပြသမည် */
         }
-        
+
         .mobile-footer-nav a {
             color: var(--color-text-main);
             text-decoration: none;
@@ -531,19 +628,24 @@
             padding: 5px;
             transition: color 0.3s;
         }
-        
+
         .mobile-footer-nav a i {
             display: block;
             font-size: 1.2rem;
             margin-bottom: 2px;
         }
-        
-        .mobile-footer-nav a.active, .mobile-footer-nav a:hover {
+
+        .mobile-footer-nav a.active,
+        .mobile-footer-nav a:hover {
             color: var(--color-text-accent);
         }
 
         /* အထွေထွေ ဖောင်နှင့် ထည့်သွင်းချက် ပုံစံများ */
-        input[type="text"], input[type="email"], input[type="date"], textarea, select {
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea,
+        select {
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
@@ -555,7 +657,9 @@
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        input:focus, textarea:focus, select:focus {
+        input:focus,
+        textarea:focus,
+        select:focus {
             background-color: rgba(255, 255, 255, 0.15);
             outline: 1px solid var(--color-primary);
             box-shadow: 0 0 5px var(--color-primary);
@@ -566,36 +670,45 @@
             .header-content nav {
                 display: none;
             }
+
             .mobile-menu-btn {
                 display: block;
             }
+
             .mobile-footer-nav {
-                display: flex; /* Show mobile nav */
+                display: flex;
+                /* Show mobile nav */
             }
+
             .hero-content h1 {
                 font-size: 3rem;
             }
+
             .section-title {
                 font-size: 2.5rem;
             }
         }
-        
+
         @media (max-width: 768px) {
             body {
-                padding-top: 80px; 
+                padding-top: 80px;
             }
+
             header {
                 top: 25px;
             }
+
             .hero {
                 margin-top: -80px;
                 padding-top: 10rem;
             }
+
             .cta-button {
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
             }
+
             .payment-options button {
                 width: 100%;
                 margin-bottom: 10px;
@@ -603,8 +716,9 @@
         }
     </style>
 </head>
+
 <body>
-    
+
     <div class="marquee-container">
         <marquee behavior="scroll" direction="left" scrollamount="6">
             ✨ လုံးစုံများစွာသတ္တဝါ ချမ်းသာကိုယ်စိတ်မြဲပါစေ။ မိတ်ဆွေများစွာ လူတကာ လိုရာဆန္ဒပြည့်ပါစေ။ ✨
@@ -615,12 +729,12 @@
         <div class="container header-content">
             <a href="#home" class="logo">
                 <div class="logo-img">ထ</div>
-                <div class="logo-text">ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်</div>
+                <div class="logo-text">ထူးဂမ္ဘီရလိုတရ</div>
             </a>
             <nav id="mainNav">
                 <ul>
                     <li><a href="#home" data-scroll>ပင်မစာမျက်နှာ</a></li>
-                    <li><a href="#mmcal" data-scroll>ပြက္ခဒိန်</a></li>
+                    <li><a href="#mmcal" data-scroll>အချိန်/ပြက္ခဒိန်</a></li>
                     <li><a href="#loka-neeti" data-scroll>လောကနီတိ</a></li>
                     <li><a href="#baydin" data-scroll>ပညာဒါနဗေဒင်</a></li>
                     <li><a href="#services" data-scroll>ဝန်ဆောင်မှုများ</a></li>
@@ -635,16 +749,24 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်</h1>
+            <h1>ဂမ္ဘီရလောကီ ဆရာထူးသစ်စျာန်</h1>
             <p>
-                **ဓာတ်၊ နတ်၊ သိုက်၊ ဂမ္ဘီရ** လောကီပညာရပ်များဖြင့် ဗေဒင်ဟောခြင်း၊ မှော်အဆောင်လက်ဖွဲ့များနှင့် လောကီဆိုင်ရာ ပြဿနာများအတွက် **ထိရောက်သော ဖြေရှင်းချက်**များ ပေးအပ်ခြင်း။
+                **ဓာတ်၊ နတ်၊ သိုက်၊ ဂမ္ဘီရ** လောကီပညာရပ်များဖြင့် ဗေဒင်ဟောခြင်း၊ မှော်အဆောင်လက်ဖွဲ့များနှင့် လောကီဆိုင်ရာ ပြဿနာများအတွက် **ထိရောက်သော အစီအမံများပြုလုပ်ဆောင်ရွက်ပေးခြင်း
             </p>
-            
-            <div class="mm-calendar-container" id="mmcal">
-                <h3><i class="fas fa-calendar-alt"></i> မြန်မာစံတော်ချိန်နှင့် ပြက္ခဒိန်</h3>
-                <iframe id="mmcal-display" src="https://yan9a.github.io/mmcal/embed" scrolling="no" title="Myanmar Calendar"></iframe>
-            </div>
 
+            <div class="mm-calendar-container" id="mmcal">
+                <div id="digitalClock" class="clock">
+                    <div class="clock-container">
+                        <h2 id="hour">00</h2>
+                        <h2 class="dot">:</h2>
+                        <h2 id="minute">00</h2>
+                        <h2 class="dot">:</h2>
+                        <h2 id="seconds">00</h2>
+                        <span id="ampm">AM</span>
+                    </div>
+                </div>
+                <p id="currentDateMyanmar" style="text-align:center; margin-top:15px; font-size:1.1em; color:var(--color-primary); font-weight:700;">Loading Date...</p>
+            </div>
             <div class="hero-buttons" style="margin-top: 3rem;">
                 <a href="#baydin" class="cta-button">ဆရာထူး၏ ဇာတာဟောကိန်း <i class="fas fa-magic"></i></a>
                 <a href="#contact" class="cta-button cta-button-secondary">ဆရာနှင့် တိုက်ရိုက်ဆွေးနွေးရန်</a>
@@ -657,10 +779,7 @@
             <h2 class="section-title">📚 လောကနီတိ</h2>
             <div class="loka-neeti-content">
                 <h3>လူမှုဘဝအတွက် လောကီကျင့်ဝတ်များ</h3>
-                <iframe class="loka-neeti-iframe" 
-                        src="https://my.wikipedia.org/wiki/%E1%80%9C%E1%80%B1%E1%80%AC%E1%80%80%E1%80%94%E1%80%AE%E1%80%90%E1%80%AD" 
-                        title="လောကနီတိ (Wikipedia Content)" 
-                        allowfullscreen>
+                <iframe class="loka-neeti-iframe" src="https://my.wikipedia.org/wiki/%E1%80%9C%E1%80%B1%E1%80%AC%E1%80%80%E1%80%94%E1%80%AE%E1%80%90%E1%80%AD" title="လောကနီတိ (Wikipedia Content)" allowfullscreen>
                 </iframe>
                 <p style="text-align: center; margin-top: 1rem; font-style: italic; color: var(--color-primary);">
                     (အသေးစိတ်အချက်အလက်များကို မူရင်း Wikipedia စာမျက်နှာမှ ကူးယူဖော်ပြပါသည်။)
@@ -672,9 +791,9 @@
     <section class="baydin-section" id="baydin">
         <div class="container">
             <h2 class="section-title">✨ ပညာဒါန ဗေဒင်ဟောခန်းမ</h2>
-            
+
             <div class="card-style" id="baydinWizard">
-                
+
                 <div class="step-content active" id="step1">
                     <p style="font-size: 1.1rem; color: var(--color-secondary); margin-bottom: 2rem; font-weight: 600;">
                         မိတ်ဆွေ, ဘယ်လို ဟောကိန်းမျိုး လိုချင်ပါသလဲ?
@@ -703,7 +822,7 @@
                         <button id="selectByDob" data-select="dob">မွေးသက္ကရာဇ်</button>
                         <button id="selectByDay" data-select="day">မွေးနေ့နံ</button>
                     </div>
-                    
+
                     <div id="dobInputGroup" style="display: none; justify-content: center; gap: 15px; flex-wrap: wrap;">
                         <input type="date" id="birthDate" placeholder="မွေးသက္ကရာဇ် ထည့်ပါ" style="max-width: 300px;">
                         <button id="nextToProcessing" class="cta-button" style="padding: 10px 20px; margin: 0;">ဟောကိန်းထုတ်ရန်</button>
@@ -737,14 +856,18 @@
                         <h3 id="resultTitle">တစ်လတာ ဇာတာဟောကိန်း</h3>
                         <p style="font-weight: 700; color: var(--color-secondary);" id="dayOfWeekTitle">ဗုဒ္ဓဟူးသားသမီးများအတွက် ယခုလ</p>
                         <p id="resultDate" style="font-style: italic; font-size: 0.9rem; margin-top: -10px;">ရက်စွဲ: 2024-11-20 မှတ်တမ်း</p>
-                        
+
                         <blockquote id="resultDescription" style="border-left: 5px solid var(--color-primary); padding-left: 15px; margin: 2rem 0; font-size: 1.1rem;">
                             ဤနေရာတွင် ဟောကိန်းအဖြေကို ဖော်ပြပါမည်။
                         </blockquote>
                         
-                        <div id="resultDetails" style="text-align: left; max-width: 500px; margin: 0 auto;">
+                        <button id="toggleDetailsBtn" class="cta-button" style="margin-bottom: 1.5rem;">
+                            လှုမှုဘဝအတွက် နေ့စဥ်ကျင့်ဝတ်များ (နှိပ်ဖတ်ရန်)
+                        </button>
+
+                        <div id="resultDetails" style="text-align: left; max-width: 500px; margin: 0 auto; display: none;">
                             </div>
-                        
+
                         <button id="startNewReading" class="cta-button cta-button-secondary" style="margin-top: 2rem;">
                             အခြား ဟောကိန်း ကြည့်ရန် <i class="fas fa-redo-alt"></i>
                         </button>
@@ -769,7 +892,7 @@
                 <div id="tarotResult" style="text-align: center; margin-top: 2rem; display: none;">
                     <i class="fas fa-hands-helping fa-3x" style="color: var(--color-secondary);"></i>
                     <h3 id="tarotAnswer" class="tarot-answer">...</h3>
-                    <p id="tarotExplanation" style="margin-top: 10px; font-style: italic;"></p>
+                    <p id="tarotExplanation" style="margin-top: 10px; font-style: italic;"> </p>
                 </div>
             </div>
         </div>
@@ -777,7 +900,7 @@
 
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">🛎️ ဝန်ဆောင်မှုများ</h2>
+            <h2 class="section-title">ဝန်ဆောင်မှုများ</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div class="card-style">
                     <i class="fas fa-hand-holding-heart fa-3x" style="color: var(--color-secondary); margin-bottom: 15px;"></i>
@@ -847,12 +970,12 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်. All rights reserved. | 
-                <span style="color: var(--color-primary);">Designed with a touch of **Digital Magic** by Gemini.</span>
+            <p>&copy; <span id="currentYear"></span> ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်. All rights reserved. |
+                <span style="color: var(--color-primary);">Designed with a touch of **Digital Magic** by BossBaby</span>
             </p>
         </div>
     </footer>
-    
+
     <div class="mobile-footer-nav">
         <a href="#home" data-scroll class="active"><i class="fas fa-home"></i> ပင်မ</a>
         <a href="#baydin" data-scroll><i class="fas fa-magic"></i> ဗေဒင်</a>
@@ -866,18 +989,18 @@
             <h3 style="color: var(--color-text-accent); text-align: center; margin-bottom: 1.5rem;">
                 ပစ္စည်း ဝယ်ယူမှု - <span id="modalProductName">...</span>
             </h3>
-            
+
             <p style="text-align: center; margin-bottom: 1rem;">ငွေချေစနစ် ရွေးချယ်ပါ:</p>
             <div class="payment-options" style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
                 <button id="onlinePayBtn" data-type="online" class="active">Online ငွေချေ</button>
                 <button id="codBtn" data-type="cod">အိမ်ရောက်ငွေချေ (COD)</button>
             </div>
-            
+
             <form id="orderForm">
                 <input type="hidden" id="orderedProductName" name="orderedProductName">
                 <input type="hidden" id="orderedProductID" name="orderedProductID">
                 <input type="hidden" id="selectedPaymentType" name="selectedPaymentType" value="online">
-                
+
                 <div id="onlineForm" class="payment-form active">
                     <input type="text" id="onlineName" placeholder="အမည်" required>
                     <input type="text" id="onlinePhone" placeholder="ဖုန်းနံပါတ်" required>
@@ -885,7 +1008,7 @@
                         ငွေလွှဲပြီးပါက ဆရာ့ဖုန်းနံပါတ် သို့မဟုတ် Messenger သို့ ဆက်သွယ်ပြီး Order ကို အတည်ပြုပေးပါ။
                     </p>
                 </div>
-                
+
                 <div id="codForm" class="payment-form">
                     <input type="text" id="codName" placeholder="အမည်" required>
                     <input type="text" id="codPhone" placeholder="ဖုန်းနံပါတ်" required>
@@ -894,18 +1017,92 @@
                         <option value="ရန်ကုန်">ရန်ကုန်</option>
                         <option value="မန္တလေး">မန္တလေး</option>
                         <option value="နေပြည်တော်">နေပြည်တော်</option>
-                        </select>
+                    </select>
                     <input type="text" id="codTownship" placeholder="မြို့နယ်" required>
                     <textarea id="codAddress" rows="3" placeholder="လမ်းအမည်၊ အိမ်နံပါတ် အသေးစိတ်လိပ်စာ" required></textarea>
                 </div>
-                
+
                 <button type="submit" class="cta-button" style="width: 100%; background: var(--color-secondary);">မှာယူမှု အတည်ပြုရန် <i class="fas fa-check-circle"></i></button>
             </form>
         </div>
     </div>
 
     <script>
+        // --- DIGITAL CLOCK & DATE LOGIC (New Integration) ---
+        
+        // Helper function for Myanmar Date formatting
+        function getMyanmarFormattedDate(date) {
+            const myDate = date.toLocaleDateString('my-MM', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long'
+            });
+            const engDate = date.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+            const myTime = date.toLocaleTimeString('my-MM', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+            // 1. 📅 Date Logic Override: မြန်မာသက္ကရာဇ် (Hardcoded Example) + English Date + Current Time ပေါင်းစပ်ခြင်း
+            // Note: တိကျသော မြန်မာသက္ကရာဇ်/လပြည့်လကွယ်ကို စံပြရန်အတွက် Hardcode လုပ်ထားသည် (ဥပမာ: နိုဝင်ဘာလ 22 ရက် 2025 သည် စနေနေ့)
+            const religiousDate = "မြန်မာသက္ကရာဇ် ၁၃၈၇ ခုနှစ်၊ တန်ဆောင်မုန်းလပြည့်ကျော် ( ၁၅ ) ရက် စနေနေ့"; 
+            
+            return `${religiousDate} | ${engDate} | ${myTime} (နာရီ)`;
+        }
+        
+        function digitalClock() {
+            let hour = document.getElementById('hour');
+            let minute = document.getElementById('minute');
+            let seconds = document.getElementById('seconds');
+            let ampm = document.getElementById('ampm');
+            let dateDisplay = document.getElementById('currentDateMyanmar');
+
+            // Only run if the clock elements exist
+            if (!hour) return; 
+
+            let now = new Date();
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+            var am = 'AM';
+
+            // 12-hour format conversion
+            if (h >= 12) {
+                am = 'PM';
+                if (h > 12) {
+                    h = h - 12;
+                }
+            }
+            if (h === 0) {
+                h = 12; // Midnight (00:xx) should be displayed as 12:xx AM
+            }
+
+            // Add leading zero
+            h = (h < 10) ? '0' + h : h;
+            m = (m < 10) ? '0' + m : m;
+            s = (s < 10) ? '0' + s : s;
+
+            // Update the clock display
+            hour.innerHTML = h;
+            minute.innerHTML = m;
+            seconds.innerHTML = s;
+            ampm.innerHTML = am;
+
+            // Update date display (Using the new combined format)
+            if (dateDisplay) {
+                dateDisplay.innerHTML = `<i class="fas fa-calendar-day"></i> ${getMyanmarFormattedDate(now)}`;
+            }
+        };
+
+        // --- END DIGITAL CLOCK LOGIC ---
+
+
         document.addEventListener('DOMContentLoaded', function() {
+            
+            // Start the clock display
+            if (document.getElementById('hour')) {
+                digitalClock();
+                var interval = setInterval(digitalClock, 1000);
+            }
+
             // --- အချက်အလက် ဖွဲ့စည်းပုံများ (အရင်အတိုင်း) ---
             const baydinData = {
                 day: {
@@ -914,7 +1111,7 @@
                     description: "သင့်မွေးနေ့အရ ယနေ့သည် ကံကောင်းသောနေ့ဖြစ်သည်။ စီးပွားရေးလုပ်ငန်းများ တိုးတက်ကောင်းမွန်ပြီး အချစ်ရေးတွင်လည်း အောင်မြင်မှုရရှိနိုင်သည်။"
                 },
                 week: {
-                    title: "တစ်ပတ်စာဇာတာ",
+                    title: "တစ်ပတ်စာ ဇာတာ",
                     icon: "fa-calendar-week",
                     days: {
                         0: { title: "တနင်္ဂနွေသားသမီးများအတွက် ယခုအပတ်", description: "ယခုအပတ်တွင် စိတ်ရှည်သည်းခံရမည့်အချိန်ဖြစ်သည်။ ဆုံးဖြတ်ချက်များချရာတွင် သတိထားပါ။ သို့သော် အလုပ်တွင် အခွင့်အလမ်းများ ပေါ်လာမည်။" },
@@ -927,7 +1124,7 @@
                     }
                 },
                 month: {
-                    title: "တစ်လတာဇာတာ",
+                    title: "တစ်လတာ ဇာတာ",
                     icon: "fa-calendar-alt",
                     days: {
                         0: { title: "တနင်္ဂနွေသားသမီးများအတွက် ယခုလ", description: "ယခုလအတွင်း စိတ်ဓာတ်ခွန်အားများစွာရရှိမည်။ စီးပွားရေးလုပ်ငန်းများ တိုးတက်ကောင်းမွန်ပြီး နာမည်ကျော်ကြားမည်။" },
@@ -940,7 +1137,7 @@
                     }
                 }
             };
-            
+
             const tarotAnswers = {
                 yes: { text: "YES", class: "yes-answer", explanations: ["တားရော့ကတ်များက သင့်အတွက် အပြုသဘောဆောင်သော အချက်ပြမှုများကို ပြသနေသည်။ သင့်ရည်မှန်းချက်အောင်မြင်ရန် အလားအလာကောင်းရှိသည်။", "သင့်မေးခွန်းအတွက် အဖြေသည် ဟုတ်ကဲ့ဖြစ်သည်။ ယခုအချိန်သည် သင့်အတွက် ကောင်းမွန်သော အခွင့်အရေးများ ရရှိနိုင်သည့် အချိန်ဖြစ်သည်။", "တားရော့ကတ်များက သင့်အား ဆက်လက်လုပ်ဆောင်ရန် အားပေးနေသည်။ သင့်ရဲ့ဆုံးဖြတ်ချက်သည် မှန်ကန်ပြီး အောင်မြင်မှုဆီသို့ ဦးတည်နေသည်။"] },
                 no: { text: "NO", class: "no-answer", explanations: ["တားရော့ကတ်များက ယခုအချိန်တွင် ဆက်လက်လုပ်ဆောင်ရန် မသင့်တော်ကြောင်း ပြသနေသည်။ နောက်ထပ်အချိန်ယူပြီး စဉ်းစားသင့်သည်။", "သင့်မေးခွန်းအတွက် အဖြေသည် မဟုတ်ပါဖြစ်သည်။ ယခုအချိန်တွင် ဤကိစ္စကို ဆက်လက်လုပ်ဆောင်ရန် မသင့်တော်ပါ။", "တားရော့ကတ်များက သင့်အား ယခုအဆင့်တွင် ရပ်တန့်ထားရန် အကြံပြုနေသည်။ နောက်ပိုင်းတွင် ပိုမိုကောင်းမွန်သော အခွင့်အရေးများ ပေါ်ထွက်လာနိုင်သည်။"] },
@@ -964,6 +1161,8 @@
             const startNewReading = document.getElementById('startNewReading');
             const resultIcon = document.getElementById('resultIcon');
             const dayOfWeekTitle = document.getElementById('dayOfWeekTitle');
+            const resultDetails = document.getElementById('resultDetails'); // New Detail Container
+            const toggleDetailsBtn = document.getElementById('toggleDetailsBtn'); // New Toggle Button
             const tarotForm = document.getElementById('tarotForm');
             const tarotResult = document.getElementById('tarotResult');
             const tarotAnswer = document.getElementById('tarotAnswer');
@@ -982,7 +1181,6 @@
             const navMenu = document.getElementById('mainNav');
             const sections = document.querySelectorAll('section');
             const currentYearSpan = document.getElementById('currentYear');
-            const mmcalIframe = document.getElementById('mmcal-display');
             
 
             let selectedReadingType = 'day';
@@ -993,27 +1191,36 @@
                 document.querySelectorAll('.step-content').forEach(step => step.classList.remove('active'));
                 document.getElementById(stepId).classList.add('active');
             }
-            
+
             function getRandomItem(arr) {
                 return arr[Math.floor(Math.random() * arr.length)];
             }
+            
+            // 2. 🔒 Loka Neeti Toggle Logic (NEW)
+            function setupToggleLogic() {
+                // Ensure the button is visible with the initial 'နှိပ်ဖတ်ရန်' text
+                toggleDetailsBtn.textContent = 'လှုမှုဘဝအတွက် နေ့စဥ်ကျင့်ဝတ်များ (နှိပ်ဖတ်ရန်)';
+                resultDetails.style.display = 'none';
+
+                // Re-attach listener to prevent duplicates in dynamic environment
+                const newToggleBtn = toggleDetailsBtn.cloneNode(true);
+                toggleDetailsBtn.parentNode.replaceChild(newToggleBtn, toggleDetailsBtn); 
+                const finalToggleBtn = document.getElementById('toggleDetailsBtn');
+                
+                finalToggleBtn.addEventListener('click', () => {
+                    const isHidden = resultDetails.style.display === 'none';
+                    resultDetails.style.display = isHidden ? 'block' : 'none';
+                    finalToggleBtn.textContent = isHidden 
+                        ? 'လှုမှုဘဝအတွက် နေ့စဥ်ကျင့်ဝတ်များ (ဖျောက်ထားရန်)' 
+                        : 'လှုမှုဘဝအတွက် နေ့စဥ်ကျင့်ဝတ်များ (နှိပ်ဖတ်ရန်)';
+                });
+            }
 
             // --- ပင်မ Logic (စဉ်းစားတွေးခေါ်မှု) ---
-            
+
             // အောက်ခြေတွင် လက်ရှိနှစ် သတ်မှတ်ခြင်း
             currentYearSpan.textContent = new Date().getFullYear();
             
-            // မြန်မာပြက္ခဒိန် ပိုမိုကောင်းမွန်စွာ ပြသရန် iframe အမြင့်ကို ချိန်ညှိခြင်း
-            mmcalIframe.onload = function() {
-                try {
-                    // ဤသည်မှာ content ၏ scrollHeight အပေါ်မူတည်ပြီး အမြင့်သတ်မှတ်ရန် ကြိုးစားခြင်းဖြစ်သည် (Cross-Origin ကြောင့် အများအားဖြင့် ပိတ်ခံရသည်)
-                    this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
-                } catch (e) {
-                    console.warn("Cross-Origin ကန့်သတ်ချက်ကြောင့် မြန်မာပြက္ခဒိန် iframe အရွယ်အစား အလိုအလျောက် ချိန်ညှိမရပါ။");
-                    this.style.height = '120px'; // CSS အမြင့်သို့ ပြန်သွားခြင်း
-                }
-            };
-
             // ၁။ ဗေဒင်ကတ် နှိပ်ခြင်း- ဟောကိန်းအမျိုးအစား ရွေးပြီး Input ရွေးချယ်မှု ပြသခြင်း
             document.querySelectorAll('.baydin-card').forEach(card => {
                 card.addEventListener('click', function() {
@@ -1027,16 +1234,16 @@
             [selectByDob, selectByDay].forEach(btn => {
                 btn.addEventListener('click', function() {
                     selectedInputType = this.getAttribute('data-select');
-                    
+
                     dobInputGroup.style.display = 'none';
                     dayInputGroup.style.display = 'none';
-                    
+
                     if (selectedInputType === 'dob') {
                         dobInputGroup.style.display = 'flex';
                     } else if (selectedInputType === 'day') {
                         dayInputGroup.style.display = 'flex';
                     }
-                    
+
                     document.querySelectorAll('.selection-options button').forEach(b => b.classList.remove('selected'));
                     this.classList.add('selected');
                 });
@@ -1054,6 +1261,7 @@
                     } else if (selectedInputType === 'day' && dayOfWeekSelect.value !== '') {
                         dateObj = new Date();
                         const selectedDay = parseInt(dayOfWeekSelect.value);
+                        // စိတ်ကူးယဉ် ရလဒ်အတွက် အမှန်တကယ် နေ့ရက်ကို အသုံးပြုရန်
                         dateObj.setDate(dateObj.getDate() + (selectedDay - dateObj.getDay() + 7) % 7);
                         inputValid = true;
                     } else {
@@ -1068,7 +1276,8 @@
                         setTimeout(() => {
                             displayBaydinResult(selectedReadingType, dateObj);
                             showStep('step3'); // အဖြေ ပြသခြင်း
-                        }, 2500); 
+                            setupToggleLogic(); // Toggle logic ကို ဒီနေရာမှာ ခေါ်ထုတ်ပြီး details ကို inject လုပ်မည်။
+                        }, 2500);
                     }
                 });
             });
@@ -1076,41 +1285,43 @@
             // ၄။ အဖြေ ပြသမှု Logic
             function displayBaydinResult(type, dateObj) {
                 const data = baydinData[type];
-                const dayOfWeek = selectedInputType === 'day' ? parseInt(dayOfWeekSelect.value) : dateObj.getDay(); 
-                
+                const dayOfWeek = selectedInputType === 'day' ? parseInt(dayOfWeekSelect.value) : dateObj.getDay();
+
                 let resultTitle, resultDescription, formattedInput;
-                
+
                 if (type === 'day') {
                     resultTitle = data.title;
                     resultDescription = data.description;
                     dayOfWeekTitle.textContent = "ယနေ့ အထွေထွေ ကံဇာတာ";
-                    formattedInput = "ယနေ့အတွက်";
+                    // 1. 📅 နေ့စွဲနဲ့ အချိန် Format ကို ပေါင်းစပ်ခြင်း
+                    formattedInput = getMyanmarFormattedDate(new Date()); 
                 } else {
                     const dayData = data.days[dayOfWeek];
                     resultTitle = data.title;
                     resultDescription = dayData.description;
                     dayOfWeekTitle.textContent = dayData.title;
-                    formattedInput = selectedInputType === 'dob' 
-                        ? dateObj.toLocaleDateString('my-MM', { year: 'numeric', month: 'long', day: 'numeric' }) + " (မွေးနေ့နံ)"
+                    formattedInput = selectedInputType === 'dob'
+                        ? dateObj.toLocaleDateString('my-MM', { year: 'numeric', month: 'long', day: 'numeric' }) + " (မွေးသက္ကရာဇ်)"
                         : dayOfWeekSelect.options[dayOfWeekSelect.selectedIndex].text + " (နေ့နံ)";
                 }
-                
-                document.getElementById('resultDate').textContent = `${formattedInput} မှတ်တမ်း`;
+
+                document.getElementById('resultDate').textContent = `ရက်စွဲ: ${formattedInput} မှတ်တမ်း`;
                 resultIcon.className = 'fas ' + data.icon;
                 document.getElementById('resultTitle').textContent = resultTitle;
                 document.getElementById('resultDescription').textContent = resultDescription;
-                
+
+                // 3. 📝 Details Injection Logic (Fixed List)
                 const details = [
                     `✨ ကံကောင်းစေသော အရောင်: ${getRandomItem(['ရွှေရောင်', 'ခရမ်းရောင်', 'နက်ပြာ', 'အစိမ်းရောင်'])}`,
                     `🤝 ဆောင်ရွက်သင့်သည့်ကိစ္စ: ${getRandomItem(['ကြီးကဲသူကို ပူဇော်ခြင်း', 'အသစ်စတင်ရန် ရဲရင့်ခြင်း', 'မိတ်ဆွေများ အကူအညီယူခြင်း', 'စာပေလေ့လာခြင်း'])}`,
                     `🛑 ရှောင်ရန်: ${getRandomItem(['အရေးမကြီးသည့်ကိစ္စတွင် အငြင်းပွားခြင်း', 'အလွယ်တကူဆုံးဖြတ်ခြင်း', 'မာနကြီးခြင်း', 'မနာလိုစိတ် ထားခြင်း'])}`
                 ];
-                
-                document.getElementById('resultDetails').innerHTML = details.map(detail => 
-                    `<p style="margin-bottom: 0.5rem; color: var(--color-text-main);"><i class="fas fa-dot-circle" style="color: var(--color-primary); margin-right: 8px;"></i>${detail}</p>`)
+
+                resultDetails.innerHTML = details.map(detail =>
+                    `<p style="margin-bottom: 0.8rem; color: var(--color-text-main);"><i class="fas fa-dot-circle" style="color: var(--color-primary); margin-right: 8px;"></i>${detail}</p>`)
                     .join('');
             }
-            
+
             // ၅။ ဟောကိန်းအသစ် ကြည့်ခြင်း (Wizard ပြန်လည် စတင်ခြင်း)
             startNewReading.addEventListener('click', () => {
                 selectedInputType = null;
@@ -1120,7 +1331,7 @@
                 showStep('step1');
                 baydinWizard.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
-            
+
             // ၆။ တားရော့ ဟောကိန်း
             tarotForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -1132,17 +1343,17 @@
                 const answerTypes = ['yes', 'no', 'maybe'];
                 const randomAnswerType = answerTypes[Math.floor(Math.random() * answerTypes.length)];
                 const answer = tarotAnswers[randomAnswerType];
-                
+
                 tarotAnswer.textContent = answer.text;
                 tarotAnswer.className = `tarot-answer ${answer.class}`;
-                
+
                 const randomExplanation = answer.explanations[Math.floor(Math.random() * answer.explanations.length)];
                 tarotExplanation.textContent = randomExplanation;
-                
+
                 tarotResult.style.display = 'block';
                 tarotResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
-            
+
             // ၇။ E-Commerce လုပ်ငန်းစဉ်
             buyButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
@@ -1153,14 +1364,14 @@
                     document.getElementById('modalProductName').textContent = productName;
                     document.getElementById('orderedProductName').value = productName;
                     document.getElementById('orderedProductID').value = productID;
-                    
+
                     // မူလအတိုင်း Online ကို ပြန်လည် သတ်မှတ်ခြင်း
                     document.getElementById('selectedPaymentType').value = 'online';
                     onlinePayBtn.classList.add('active');
                     codBtn.classList.remove('active');
                     onlineForm.classList.add('active');
                     codForm.classList.remove('active');
-                    
+
                     modal.style.display = 'block';
                 });
             });
@@ -1171,17 +1382,17 @@
                     modal.style.display = 'none';
                 }
             });
-            
+
             [onlinePayBtn, codBtn].forEach(btn => {
                 btn.addEventListener('click', function() {
                     const type = this.getAttribute('data-type');
-                    
+
                     onlinePayBtn.classList.remove('active');
                     codBtn.classList.remove('active');
                     this.classList.add('active');
-                    
+
                     selectedPaymentTypeInput.value = type;
-                    
+
                     onlineForm.classList.remove('active');
                     codForm.classList.remove('active');
                     if (type === 'online') {
@@ -1191,15 +1402,15 @@
                     }
                 });
             });
-            
+
             orderForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+
                 const paymentType = selectedPaymentTypeInput.value;
                 const name = paymentType === 'online' ? document.getElementById('onlineName').value : document.getElementById('codName').value;
                 const phone = paymentType === 'online' ? document.getElementById('onlinePhone').value : document.getElementById('codPhone').value;
                 const product = document.getElementById('orderedProductName').value;
-                
+
                 let details = '';
                 if (paymentType === 'cod') {
                     const region = document.getElementById('codRegion').value;
@@ -1208,33 +1419,33 @@
                     details = `📍 ပို့ဆောင်ရန်: တိုင်း/ပြည်နယ်: ${region}, မြို့နယ်: ${township}, လိပ်စာ: ${address}`;
                 }
 
-                const message = 
+                const message =
                     `✅ **ဝယ်ယူမှု အတည်ပြုချက်**\n` +
                     `---------------------------------------\n` +
                     `📦 ပစ္စည်း: ${product}\n` +
                     `💰 ငွေချေပုံစံ: ${paymentType === 'online' ? 'Online ငွေချေ' : 'အိမ်ရောက်ငွေချေ (COD)'}\n` +
                     `👤 ဝယ်သူ: ${name}\n` +
                     `📞 ဖုန်း: ${phone}\n` +
-                    (details ? details : `\n` ) +
+                    (details ? details : `\n`) +
                     `---------------------------------------\n` +
-                    `ကျေးဇူးပြု၍ ဆရာ့ Messenger သို့ ဆက်သွယ်ပြီး Order ကို အတည်ပြုပေးပါ။`;
-                
+                    `ကျေးဇူးပြု၍ ဆရာ့ Messenger သို့ သို့မဟုတ် ဖုန်းသို့ ဆက်သွယ်ပြီး Order ကို အတည်ပြုပေးပါ။`;
+
                 alert(message);
-                
+
                 modal.style.display = 'none';
                 orderForm.reset();
             });
-            
+
             // ၈။ ဆက်သွယ်ရန် ဖောင်
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+
                 const name = document.getElementById('contactName').value;
                 const email = document.getElementById('contactEmail').value;
                 const phone = document.getElementById('contactPhone').value;
                 const message = document.getElementById('contactMessage').value;
-                
-                const contactMessage = 
+
+                const contactMessage =
                     `📩 **ဆက်သွယ်ရန် မက်ဆေ့ပို့ရန်**\n` +
                     `---------------------------------------\n` +
                     `👤 အမည်: ${name}\n` +
@@ -1243,40 +1454,40 @@
                     `💬 မက်ဆေ့: ${message}\n` +
                     `---------------------------------------\n` +
                     `ဆရာ့ Messenger သို့မဟုတ် ဖုန်းသို့ ဆက်သွယ်ရန် အကြောင်းကြားပါ။`;
-                
+
                 alert(contactMessage);
                 contactForm.reset();
             });
-            
+
             // ၉။ လမ်းညွှန် (Desktop နှင့် Mobile)
             mobileMenuBtn.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
                 this.querySelector('i').classList.toggle('fa-bars');
                 this.querySelector('i').classList.toggle('fa-times');
             });
-            
+
             document.querySelectorAll('a[data-scroll], .mobile-footer-nav a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
                     if (targetId.startsWith('#')) {
                         e.preventDefault();
                         const targetSection = document.querySelector(targetId);
-                        
+
                         if (targetSection) {
                             // Mobile Menu ဖွင့်ထားပါက ပိတ်ခြင်း
                             if (navMenu.classList.contains('active')) {
                                 navMenu.classList.remove('active');
                                 mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
                             }
-                            
+
                             // Mobile အောက်ခြေ လင့်ခ်ကို အရောင်ဖျာပြခြင်း
                             document.querySelectorAll('.mobile-footer-nav a').forEach(item => item.classList.remove('active'));
                             this.classList.add('active');
-                            
+
                             // နေရာသတ်မှတ်ချက်သို့ ရွှေ့ခြင်း (Fixed Header/Marquee အတွက် ချိန်ညှိပြီး)
                             const offset = targetId === '#home' ? 0 : 100; // ပင်မအတွက် offset နည်းနည်းထားခြင်း
                             const targetPosition = targetSection.offsetTop - offset;
-                            
+
                             window.scrollTo({
                                 top: targetPosition,
                                 behavior: 'smooth'
@@ -1285,7 +1496,7 @@
                     }
                 });
             });
-            
+
             // ၁၀။ Scroll Reveal (CSS Animation) / ရွှေ့လျားမှု ပေါ်ထွက်ခြင်း
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
             const observer = new IntersectionObserver((entries) => {
@@ -1300,4 +1511,5 @@
         });
     </script>
 </body>
+
 </html>
