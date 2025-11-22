@@ -163,6 +163,111 @@
             color: var(--color-text-accent);
         }
 
+        /* ---------------------------------------------------- */
+        /* 💡 NEW: ANNOUNCEMENT SLIDER STYLES (Hero Banner) */
+        /* ---------------------------------------------------- */
+        
+        .announcement-container {
+            /* header အောက်၊ hero section အပေါ်ဆုံးမှာ နေရာယူဖို့ */
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            /* 16:9 Aspect Ratio (e.g., for Hero Banners) */
+            padding-top: 56.25%; /* 100 / (16/9) = 56.25% */
+            height: 0; 
+            margin-top: 5px; /* header နဲ့ နည်းနည်း ခြားဖို့ */
+            margin-bottom: 2rem; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); 
+            z-index: 500; /* Content အောက်မှာ မရောက်အောင် */
+        }
+        
+        .announcement-slide {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; 
+            transition: opacity 0.8s ease-in-out; 
+            z-index: 1;
+        }
+
+        .announcement-slide.active {
+            opacity: 1; 
+            z-index: 2; 
+        }
+
+        .announcement-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block; 
+        }
+        
+        /* Controls (Prev/Next Buttons) */
+        .announcement-controls button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10; 
+            border-radius: 4px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .announcement-controls button:hover {
+            opacity: 1;
+        }
+
+        #prevAnnouncement {
+            left: 15px;
+        }
+
+        #nextAnnouncement {
+            right: 15px;
+        }
+        
+        /* Indicators (The Dots) */
+        .announcement-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            display: flex; 
+            gap: 8px; 
+            padding: 5px 10px;
+            background: rgba(0, 0, 0, 0.3); 
+            border-radius: 12px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: var(--color-text-accent); /* Active dot ကို ပိုမိုထင်ရှားစေခြင်း */
+            transform: scale(1.2); 
+            box-shadow: 0 0 5px var(--color-text-accent);
+        }
+
+        /* ---------------------------------------------------- */
+        /* 💡 END: ANNOUNCEMENT SLIDER STYLES */
+        /* ---------------------------------------------------- */
+
         /* ၅။ ပင်မပုံရိပ်အပိုင်းနှင့် စာလုံးပုံစံ */
         .hero {
             background: radial-gradient(circle at center, rgba(24, 5, 71, 0.7) 0%, rgba(12, 0, 50, 0) 70%);
@@ -181,7 +286,8 @@
             text-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
             margin-bottom: 1rem;
         }
-
+        /* ... (Rest of existing CSS remains the same) ... */
+        
         .hero-content p {
             font-size: 1.2rem;
             color: var(--color-text-main);
@@ -687,6 +793,11 @@
             .section-title {
                 font-size: 2.5rem;
             }
+            
+            /* Slider Aspect Ratio ကို မိုဘိုင်းမှာ နည်းနည်း ပိုမြင့်ခြင်း */
+            .announcement-container {
+                padding-top: 75%; /* 4:3 ratio for mobile */
+            }
         }
 
         @media (max-width: 768px) {
@@ -713,6 +824,16 @@
                 width: 100%;
                 margin-bottom: 10px;
             }
+            
+            .announcement-controls button {
+                padding: 8px 12px;
+                font-size: 1.2rem;
+            }
+            
+            .announcement-indicators {
+                bottom: 10px;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -730,7 +851,7 @@
             <a href="#home" class="logo">
                <div class="logo">
                 <img src="https://i.ibb.co/8LPhfcNz/Mon-25-08-2025-06-51-38.png" alt="ဆရာ ထူးသစ်စျာန်" class="logo-img">
-                <div class="logo-text">ဆရာ ထူးသစ်စျာန်</div>
+                <div class="logo-text">ထူးလိုတရ</div>
             </div>
             </a>
             <nav id="mainNav">
@@ -749,9 +870,55 @@
         </div>
     </header>
 
+    <div class="announcement-container" aria-live="polite">
+        <div class="announcement-slide active">
+            <img src="https://i.ibb.co/q3CH51Y8/FB-IMG-1763796760455.jpg" alt="Announcement 1: Photo 1">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/WvNC3JVR/FB-IMG-1763796731208.jpg" alt="Announcement 2: Photo 2">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/sJ1Xy5SZ/FB-IMG-1763796724820.jpg" alt="Announcement 3: Photo 3">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/pjd33ggL/FB-IMG-1763796709762.jpg" alt="Announcement 4: Photo 4">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/Y7HW2wbB/FB-IMG-1763796694467.jpg" alt="Announcement 5: Photo 5">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/WNHyJTW8/Screenshot-20251122-140116.jpg" alt="Announcement 6: Photo 6">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/nqQ8jkV8/IMG-20251122-135654-812.jpg" alt="Announcement 7: Photo 7">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/qLc8Z8jc/IMG-20251122-135718-917.jpg" alt="Announcement 8: Photo 8">
+        </div>
+        <div class="announcement-slide">
+            <img src="https://i.ibb.co/kVcwMKKH/IMG-20251122-135516-053.jpg" alt="Announcement 9: Photo 9">
+        </div>
+
+        <div class="announcement-controls">
+            <button id="prevAnnouncement" aria-label="Previous Announcement">&#10094;</button>
+            <button id="nextAnnouncement" aria-label="Next Announcement">&#10095;</button>
+        </div>
+
+        <div class="announcement-indicators" role="tablist">
+            <span class="indicator active" role="tab" aria-controls="announcement-1" data-slide="0"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-2" data-slide="1"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-3" data-slide="2"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-4" data-slide="3"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-5" data-slide="4"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-6" data-slide="5"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-7" data-slide="6"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-8" data-slide="7"></span>
+            <span class="indicator" role="tab" aria-controls="announcement-9" data-slide="8"></span>
+        </div>
+    </div>
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>ဂမ္ဘီရလောကီ ဆရာထူးသစ်စျာန်</h1>
+            <h1>ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်</h1>
             <p>
                 **ဓာတ်၊ နတ်၊ သိုက်၊ ဂမ္ဘီရ** လောကီပညာရပ်များဖြင့် ဗေဒင်ဟောခြင်း၊ မှော်အဆောင်လက်ဖွဲ့များနှင့် လောကီဆိုင်ရာ ပြဿနာများအတွက် **ထိရောက်သော အစီအမံများပြုလုပ်ဆောင်ရွက်ပေးခြင်း
             </p>
@@ -1144,6 +1311,82 @@
                 digitalClock();
                 var interval = setInterval(digitalClock, 1000);
             }
+
+            // ----------------------------------------------------
+            // 💡 NEW: ANNOUNCEMENT SLIDER JAVASCRIPT LOGIC
+            // ----------------------------------------------------
+            const slides = document.querySelectorAll('.announcement-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevButton = document.getElementById('prevAnnouncement');
+            const nextButton = document.getElementById('nextAnnouncement');
+            const sliderContainer = document.querySelector('.announcement-container');
+
+            if (slides.length > 0) {
+                let currentSlide = 0; // 0-based index
+
+                const goToSlide = (index) => {
+                    // Index ကို ပုံအရေအတွက် အတွင်းမှာ ရှိနေအောင် စစ်ဆေးမယ် (Cyclic Loop)
+                    if (index >= slides.length) {
+                        index = 0;
+                    } else if (index < 0) {
+                        index = slides.length - 1;
+                    }
+
+                    // ❌ လက်ရှိ active ဖြစ်နေတာတွေကို အရင် ဖယ်ရှားမယ်
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                    // ✅ အသစ် active ဖြစ်မယ့် slide နဲ့ indicator ကို ထည့်မယ်
+                    slides[index].classList.add('active');
+                    indicators[index].classList.add('active');
+                    
+                    currentSlide = index; // လက်ရှိ index ကို update လုပ်မယ်
+                };
+
+                // ➡️ Next Button Logic
+                nextButton.addEventListener('click', () => {
+                    goToSlide(currentSlide + 1);
+                    resetAutoSlide(); 
+                });
+
+                // ⬅️ Prev Button Logic
+                prevButton.addEventListener('click', () => {
+                    goToSlide(currentSlide - 1);
+                    resetAutoSlide();
+                });
+
+                // 👆 Indicator Click Logic
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        goToSlide(index);
+                        resetAutoSlide();
+                    });
+                });
+
+                // 🕰️ Auto Slide Logic (3.5 စက္ကန့်တိုင်း ပြောင်း)
+                let autoSlideInterval = setInterval(() => {
+                    goToSlide(currentSlide + 1);
+                }, 3500); // 3500ms = 3.5 seconds
+
+                // 🛑 Auto Slide ကို ရပ်ပြီး ပြန်စဖို့ Function
+                const resetAutoSlide = () => {
+                    clearInterval(autoSlideInterval); // အရင် Interval ကို ရှင်းပစ်မယ်
+                    autoSlideInterval = setInterval(() => {
+                        goToSlide(currentSlide + 1);
+                    }, 3500); // Interval အသစ် ပြန်စမယ်
+                };
+                
+                // Pause on hover
+                sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+                sliderContainer.addEventListener('mouseleave', resetAutoSlide);
+                
+                // 🚀 Start: ပထမ slide ကို စတင်ပြသမယ်
+                goToSlide(currentSlide);
+            }
+            // ----------------------------------------------------
+            // 💡 END: ANNOUNCEMENT SLIDER JAVASCRIPT LOGIC
+            // ----------------------------------------------------
+
 
             // --- အချက်အလက် ဖွဲ့စည်းပုံများ (အရင်အတိုင်း) ---
             const baydinData = {
